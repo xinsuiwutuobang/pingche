@@ -26,7 +26,7 @@ Page({
     var Commentdata = this.data.comment;
     util.req('comment/zan',{
       'cid':Commentdata[event.currentTarget.id].id,
-      'sk':app.globalData.sk
+      'uid':app.globalData.userInfo.id
       },function(data){
       if(data.status == 1){
         Commentdata[event.currentTarget.id].zan = data.zan;
@@ -114,6 +114,7 @@ Page({
   setsurplus:function(e){
     this.setData({surplus:e.detail.value})
   },
+
   onLoad:function(options){
     var that = this;
     wx.getSystemInfo({
@@ -128,12 +129,15 @@ Page({
       'userInfo.phone':app.globalData.userInfo.phone
     })
 
-    util.req('fav/isfav',{iid:options.id,sk:app.globalData.sk},function(data){
-      if(data.status == 1){
-        that.setData({'shoucang':true});
+
+    //是否收藏
+    util.req('fav/isfav',{iid:options.id,uid:app.globalData.userInfo.id,sk:app.globalData.sk},function(data){
+      if(data.code == 200){
+        that.setData({'shoucang':data.data});
       }
     }) 
 
+    //详情
     util.req('info/index',{id:options.id},function(data){
       that.setData({data:data.data});
       if(data.data.uid == app.globalData.userInfo.id){
@@ -170,8 +174,8 @@ Page({
   },
   getComment:function(id){
     var that = this;
-    util.req('comment/get',{id:id,type:'info',page:page},function(data){
-      if(data.status == 1){
+    util.req('comment/get',{id:id,type:'info',current:page},function(data){
+      if(data.code == 200){
         if(page == 1){          
           comment = new Array();
         }
@@ -188,7 +192,7 @@ Page({
               img:JSON.parse(item.img),
               zan:item.zan,
               reply:item.reply,
-              time:util.getDateBiff(item.time*1000)
+              time:util.getDateBiff(Date.parse(item.time))
             })
           })
         }
@@ -211,7 +215,7 @@ Page({
   getCount:function(id){  
     var that = this;  
     util.req('comment/get_count',{id:id,type:'info'},function(data){  //获取评论总数
-      if(data.status == 1){
+      if(data.code == 200){
         that.setData({comnum:data.data});
       }
     })

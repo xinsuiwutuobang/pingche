@@ -68,11 +68,11 @@ Page({
       util.isError('手机号码错误', that);
       return false;
     }
-    if(that.data.departure == '出发地'){
+    if(data.departure == '出发地'){
       util.isError('请选择出发地', that);
       return false;
     }
-    if(that.data.destination == '目的地'){
+    if(data.destination == '目的地'){
       util.isError('请选择目的地', that);
       return false;
     }
@@ -91,13 +91,15 @@ Page({
       util.isError('请阅读并同意条款',that);
       return false;
     }
+
     data.sk = app.globalData.sk;
-    data.departure = that.data.departure;
-    data.destination = that.data.destination;
+    data.uid = app.globalData.userInfo.id;
+    delete data.isAgree;
+
     util.req('info/add',data,function(data){
-      if(data.status == 1){
+      if(data.code == 200){
         wx.redirectTo({
-          url: '/pages/info/index?id='+data.info
+          url: '/pages/info/index?id='+data.data
         });
       }else{
         util.isError(data.msg,that);
@@ -106,6 +108,7 @@ Page({
     })
     util.clearError(that);
   },
+  //微信地图选择地点
   sexDeparture:function(){
     var that = this;
     wx.chooseLocation({

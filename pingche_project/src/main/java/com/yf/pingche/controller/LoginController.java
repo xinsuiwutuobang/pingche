@@ -36,6 +36,12 @@ public class LoginController {
     @Autowired
     private IUserService iUserService;
 
+    /**
+     * 登录
+     * @param code
+     * @param user
+     * @return
+     */
     @PostMapping("/login")
     public Object login(String code,User user) {
         String url = "https://api.weixin.qq.com/sns/jscode2session";

@@ -1,7 +1,9 @@
 //index.js
 //获取应用实例
+
 var util = require('../../utils/util.js');
 var app = getApp();
+//七天
 var today = util.formatTime(new Date((new Date()).getTime()+(1000*60*60*24*7))).split(' ')[0];
 var minday = util.formatTime(new Date()).split(' ')[0];
 var maxday =  util.formatTime(new Date((new Date()).getTime()+(1000*60*60*24*62))).split(' ')[0];
@@ -14,8 +16,8 @@ var list2 = new Array();
 Page({
   data: {
     all:'act',
-    date:today,
-    minday:today,
+    //date:,
+    minday:"",
     maxday:maxday,
     tabs: ["全部", "车找人", "人找车"],
     activeIndex: 0,
@@ -24,12 +26,14 @@ Page({
     start:'',
     over:''
   },
+
   tabClick: function (e) {
         this.setData({
             sliderOffset: e.currentTarget.offsetLeft,
             activeIndex: e.currentTarget.id
         });
     },
+
   bindDateChange:function(e){
     this.setData({
       date:e.detail.value
@@ -41,9 +45,9 @@ Page({
       title: '同城拼车',
       path: 'pages/index/index'
     }
+
   },
   getList:function(date='',start='',over=''){
-
     var that = this;
     util.req('info/lists',
       {start:start,over:over,date:date,current:page},
@@ -77,13 +81,15 @@ Page({
             over:over,
             type:that.data.tabs[item.type],
             tp:item.type,
-            time:util.formatTime(new Date(item.time*1000)),
+            //time:util.formatTime(item.time),
+            time:item.time.substring(11,16),
+            date:item.date.substring(0,11),
             surplus:item.surplus+surp[item.type],
             see:item.see,
             gender:item.gender,
             avatarUrl:item.avatarUrl,
             url:'/pages/info/index?id='+item.id,
-            tm:util.getDateDiff(item.time*1000)
+            tm:util.getDateDiff(Date.parse(item.time))
             };
             list.push(obj);
             if(item.type == 1){

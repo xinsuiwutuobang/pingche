@@ -90,12 +90,13 @@ function getDateDiff(dateTimeStamp){
 	var month = day * 30;
 	var now = new Date().getTime();
 	var diffValue = dateTimeStamp - now;
-	if(diffValue < 0){return;}
+	if(diffValue < 0){return "已过期";}
 	var monthC =diffValue/month;
 	var weekC =diffValue/(7*day);
 	var dayC =diffValue/day;
 	var hourC =diffValue/hour;
-	var minC =diffValue/minute;
+  var minC =diffValue/minute;
+  
   var result = '';
 	if(monthC>=1){
 		result="" + parseInt(monthC) + "月后";

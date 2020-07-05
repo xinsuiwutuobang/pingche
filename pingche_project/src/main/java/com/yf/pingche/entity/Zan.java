@@ -2,6 +2,7 @@ package com.yf.pingche.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
+import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -16,7 +17,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author yangfei
- * @since 2020-07-03
+ * @since 2020-07-04
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -28,13 +29,13 @@ public class Zan implements Serializable {
 private static final long serialVersionUID=1L;
 
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Long id;
 
-    private Integer uid;
+    private Long uid;
 
-    private Integer cid;
+    private Long cid;
 
-    private Integer time;
+    private Date time;
 
 
 }

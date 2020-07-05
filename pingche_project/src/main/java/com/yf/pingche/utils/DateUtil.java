@@ -1,7 +1,6 @@
 package com.yf.pingche.utils;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.time.DateFormatUtils;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -559,5 +558,28 @@ public class DateUtil {
         c.setTime(date);
         c.set(Calendar.DAY_OF_WEEK, c.getFirstDayOfWeek() + 6); // Sunday
         return c.getTime();
+    }
+
+    public static Integer getHHSSSecond(String time) throws ParseException {
+        Calendar now = Calendar.getInstance();
+        now.set(Calendar.HOUR,Integer.parseInt(time.substring(0,2)));
+        now.set(Calendar.MINUTE,Integer.valueOf(time.substring(3)));
+        now.set(Calendar.SECOND,0);
+        Long second = now.getTime().getTime() / 1000;
+        return second.intValue();
+    }
+
+    public static Date parseDateByHHss(String time) {
+        Calendar now = Calendar.getInstance();
+        now.set(Calendar.HOUR,Integer.parseInt(time.substring(0,2)));
+        now.set(Calendar.MINUTE,Integer.valueOf(time.substring(3)));
+        now.set(Calendar.SECOND,0);
+        return now.getTime();
+    }
+
+    public static void main(String[] args) {
+        String aa = "17:33";
+        Date date = parseDate(aa, DateUtil.HHMM);
+        System.out.println(date);
     }
 }

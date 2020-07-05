@@ -55,11 +55,12 @@ knife4j:
     password: admin
 
 #Logger Config
-logging:
-  level:
-    com.yf.pingche.mapper: info
-  config: classpath:logback.xml
-  file: logs/${spring.application.name}
+#logging:
+#  level:
+#    root: DEBUG
+#    #com.yf.pingche.mapper: info
+#  config: classpath:logback.xml
+#  file: logs/${spring.application.name}
 
 server:
   port: 8099

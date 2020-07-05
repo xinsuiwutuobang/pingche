@@ -18,7 +18,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author yangfei
- * @since 2020-07-03
+ * @since 2020-07-04
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -34,7 +34,7 @@ private static final long serialVersionUID=1L;
 
     private Date date;
 
-    private Integer time;
+    private Date time;
 
     private String departure;
 
@@ -62,7 +62,7 @@ private static final long serialVersionUID=1L;
 
     private BigDecimal price;
 
-    private Integer addtime;
+    private Date addtime;
 
 
 }

@@ -48,7 +48,7 @@ public class MysqlGenerator {
         /*String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/src/main/java");*/
         //后期修改，采用输出D盘根目录的默认位置
-        gc.setOutputDir("D:\\MysqlGenerator");
+        gc.setOutputDir("C:\\MysqlGenerator");
         String projectPath = gc.getOutputDir();
         gc.setAuthor("yangfei");
         gc.setOpen(true);

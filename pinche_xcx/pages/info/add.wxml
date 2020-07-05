@@ -50,11 +50,30 @@
                         </radio-group>
                     </view>
                 </view>
+                 <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">出发地</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" type="text" name="departure" value="{{departure}}" placeholder="请输入出发地"/>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">目的地</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" type="text" name="destination" value="{{destination}}" placeholder="请输入目的地"/>
+                    </view>
+                </view>
+                <!--bindtap，当用户点击该组件的时候会在该页面对应的Page中找到相应的事件处理函数-->
+                <!--
                 <view class="weui-cell weui-cell_input StartAndStop">
                     <view class="weui-cell__hd">
                         <view class="weui-label">出发地</view>
                     </view>
                     <view class="weui-cell__bd">
+                       
                         <view class="weui-input" bindtap="sexDeparture">{{departure}}</view>                 
                     </view>
                 </view>
@@ -66,6 +85,7 @@
                         <view class="weui-input stop" bindtap="sexDestination">{{destination}}</view>
                     </view>
                 </view>
+                -->
                 <!-- <image src="/img/to.png" class="to1"></image> -->
                         
                 <view class="weui-cell weui-cell_input">

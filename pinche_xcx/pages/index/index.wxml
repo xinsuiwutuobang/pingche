@@ -8,7 +8,7 @@
     <image src="/img/date.png" class="dateImg"></image>
     <picker mode="date" value="{{date}}" class="date" start="{{minday}}" end="{{maxday}}" bindchange="bindDateChange">
     <view class="picker">
-      {{date}}
+      {{date ? date : "请选择"}}
     </view>
   </picker>
   </view>
@@ -17,6 +17,7 @@
  <view class="page__bd"> 
   <view class="weui-tab">
             <view class="weui-navbar">
+            <!--tab 标签-->
                 <block wx:for="{{tabs}}" wx:key="*this">
                     <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
                         <view class="weui-navbar__title">{{item}}</view>

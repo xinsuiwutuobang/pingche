@@ -14,4 +14,6 @@ import lombok.Data;
 @Data
 public class InfoPo extends Info {
     private String avatarUrl;
+    String timeString;
+    String dateString;
 }
