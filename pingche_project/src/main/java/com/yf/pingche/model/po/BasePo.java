@@ -1,7 +1,7 @@
 package com.yf.pingche.model.po;
 
-import com.yf.pingche.entity.Info;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * <p>
@@ -12,9 +12,7 @@ import lombok.Data;
  * @since 2019-05-18
  */
 @Data
-public class InfoPo extends Info {
+public class BasePo {
     private String avatarUrl;
-    String timeString;
-    String dateString;
-    String nickName;
+    private String nickName;
 }

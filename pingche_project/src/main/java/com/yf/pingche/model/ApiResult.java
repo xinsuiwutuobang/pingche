@@ -25,7 +25,7 @@ public class ApiResult<T> implements Serializable {
 
     private int code;
 
-    private String message;
+    private String msg;
 
     private T data;
 
@@ -47,7 +47,7 @@ public class ApiResult<T> implements Serializable {
     public static <T> ApiResult<T> result(int apiCode,String message,T data){
         return (ApiResult<T>) ApiResult.builder()
                 .code(apiCode)
-                .message(message)
+                .msg(message)
                 .data(data)
                 .build();
     }
@@ -69,7 +69,7 @@ public class ApiResult<T> implements Serializable {
     public static <T>  ApiResult<T> fail(Integer errorCode,String message){
         return (ApiResult<T>) ApiResult.builder()
                 .code(errorCode)
-                .message(message)
+                .msg(message)
                 .build();
     }
 }

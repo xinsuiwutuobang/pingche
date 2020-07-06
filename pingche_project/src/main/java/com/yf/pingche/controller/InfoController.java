@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yf.pingche.constant.BaseConstant;
 import com.yf.pingche.entity.Info;
 import com.yf.pingche.entity.User;
 import com.yf.pingche.model.ApiResult;
@@ -77,7 +78,13 @@ public class InfoController {
     @PostMapping("/index")
     public Object index(Long id) {
         Info ret = iInfoService.getById(id);
-        return ApiResult.ok(ret);
+        Integer uid = ret.getUid();
+        User user = iUserService.getById(uid);
+        InfoPo infoPo = new InfoPo();
+        BeanUtils.copyProperties(ret,infoPo);
+        infoPo.setAvatarUrl(user.getAvatarUrl());
+        infoPo.setNickName(user.getNickName());
+        return ApiResult.ok(infoPo);
     }
     /**
      * 添加、修改
@@ -92,6 +99,36 @@ public class InfoController {
         return ApiResult.ok(info.getId());
     }
 
+    /**
+     * 我发布信息数量
+     * @param uid
+     * @return
+     */
+    @PostMapping("/mycount")
+    public Object mycount(Long uid) {
+        int count = iInfoService.count(Wrappers.<Info>lambdaQuery().eq(Info::getUid, uid));
+        return ApiResult.ok(count);
+    }
+
+    /**
+     * 删除我的发布
+     * 评论等不删，查看时提示不存在
+     * @param id
+     * @param uid
+     * @return
+     */
+    @PostMapping("/del")
+    public Object del(Long id,Long uid) {
+        boolean ret = iInfoService.removeById(id);
+        return ApiResult.ok(ret);
+    }
+
+    @PostMapping("/mylist")
+    public Object mycount(Long uid, Integer page) {
+        IPage<Info> ret = iInfoService.page(new Page<>(page, BaseConstant.SIZE),
+                Wrappers.<Info>lambdaQuery().eq(Info::getUid, uid).orderByDesc(Info::getTime));
+        return ApiResult.ok(ret.getRecords());
+    }
     @GetMapping("/test")
     public Object test(Date date) {
         return date;

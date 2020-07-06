@@ -8,7 +8,7 @@ Page({
   data:{},
   getList:function(id){
     var that = this;
-    util.req('msg/get',{type:id,sk:app.globalData.sk,page:page},function(data){
+    util.req('msg/get',{type:id,uid:app.globalData.userInfo.id,sk:app.globalData.sk,current:page},function(data){
       if(data.data == null){
         that.setData({ 'isnull': true,'nomore':true});
         return false;
@@ -17,9 +17,10 @@ Page({
         arr = new Array();
       }
 
+
       data.data.forEach(function(item){
         arr.push({
-          time: util.getDateBiff(item.time * 1000),
+          time: util.getDateBiff(Date.parse(item.time)),
           content: item.content,
           nickName: item.nickName,
           avatarUrl: item.avatarUrl,

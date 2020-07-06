@@ -64,14 +64,15 @@ Page({
       return false;
     }
     util.req('comment/add',{
+      'uid':app.globalData.userInfo.id,
       'iid':that.data.data.id,
       'reply':(that.data.data.reply == '楼主')?'':that.data.data.reply,
       'type':'info',
       'content':content,
-      'img':JSON.stringify(that.data.files),
+      //'img':JSON.stringify(that.data.files),
       'sk':app.globalData.sk
       },function(data){
-      if(data.status == 1){
+      if(data.code == 200){
         wx.navigateBack({
           delta: 1
         })

@@ -91,10 +91,12 @@ Page({
     data.departure = that.data.data.departure;
     data.destination = that.data.data.destination;
     data.id = that.data.data.id;
+    data.uid = app.globalData.userInfo.id;
+    delete data.isAgree;
     util.req('info/add',data,function(data){
-      if(data.status == 1){
+      if(data.code == 200){
         wx.redirectTo({
-          url: '/pages/info/index?id='+data.info
+          url: '/pages/info/index?id='+data.data
         });
       }else{
         util.isError(data.msg,that);
@@ -126,7 +128,7 @@ Page({
   onLoad:function(options){
     var that = this;
     util.req('info/index',{id:options.id},function(data){
-      var time = util.formatTime(new Date(data.data.time*1000)).split(' ')[1];
+      var time = data.data.time.substring(11,16)
       data.data.time = time;
       that.setData({data:data.data});
     })

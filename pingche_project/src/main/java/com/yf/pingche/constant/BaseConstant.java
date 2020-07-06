@@ -16,6 +16,8 @@ public class BaseConstant {
 
     public static AtomicInteger atomicInteger = new AtomicInteger(1);
 
+    public static Integer SIZE = 10;
+
     public static void main(String[] args) {
         int localVar = 2;
         while (!atomicInteger.compareAndSet(localVar, localVar + 1)) {

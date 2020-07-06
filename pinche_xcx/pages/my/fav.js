@@ -42,8 +42,8 @@ Page({
   },
   getList(){
     var that = this;
-    util.req('fav/myFav',{sk:app.globalData.sk,page:page},function(data){
-      if(data.data == null){
+    util.req('fav/myFav',{sk:app.globalData.sk,iid:app.globalData.userInfo.id,current:page},function(data){
+      if(data.code == 200){
           if(page == 1){  
             console.log(page)        ;
             that.setData({'isnull':true});
@@ -59,16 +59,16 @@ Page({
         var surp = new Array('','空位','人');
         data.data.forEach(function(item){
           var obj = {
-            start:((item.departure).split('市')[1]).replace(/([\u4e00-\u9fa5]+[县区]).+/,'$1'),
-            over:((item.destination).split('市')[1]).replace(/([\u4e00-\u9fa5]+[县区]).+/,'$1'),
+            start:item.departure,
+            over:item.destination,
             type:that.data.tabs[item.type],
             tp:item.type,
-            time:util.formatTime(new Date(item.time*1000)),
+            time:item.time.substring(11,16),
             surplus:item.surplus+surp[item.type],
             see:item.see,
             gender:item.gender,
             url:'/pages/info/index?id='+item.id,
-            tm:util.getDateDiff(item.time*1000),
+            tm:util.getDateDiff(Date.parse(item.time)),
             id:item.id,
             fad:item.fad
           };

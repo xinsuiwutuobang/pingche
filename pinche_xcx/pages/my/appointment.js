@@ -63,8 +63,8 @@ Page({
   },
   getMy: function () {
     var that = this;
-    util.req('appointment/my', { sk: app.globalData.sk }, function (data) {
-      if (data.status == 1) {
+    util.req('appointment/my', {uid:app.globalData.userInfo.id, sk: app.globalData.sk }, function (data) {
+      if (data.code == 200) {
         var list = data.data;
         that.setData({my:list});
       }

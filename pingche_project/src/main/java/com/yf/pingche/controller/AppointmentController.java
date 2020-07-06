@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.yf.pingche.entity.Appointment;
 import com.yf.pingche.model.ApiResult;
 import com.yf.pingche.service.IAppointmentService;
+import com.yf.pingche.service.IInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,6 +31,8 @@ public class AppointmentController {
 
     @Autowired
     private IAppointmentService iAppointmentService;
+    @Autowired
+    private IInfoService infoService;
 
     @PostMapping("/add")
     public Object add(Long userId, Long iid, String name, String phone, Integer susplus) {
@@ -62,8 +65,7 @@ public class AppointmentController {
         return null;
     }
     @RequestMapping("/submit")
-    public Object submit(Integer id,String sk,Integer type,String form_id) {
-
+    public Object submit(Integer uid,String sk,Integer type,String form_id) {
         return null;
     }
 }

@@ -28,8 +28,8 @@ Page({
       'cid':Commentdata[event.currentTarget.id].id,
       'uid':app.globalData.userInfo.id
       },function(data){
-      if(data.status == 1){
-        Commentdata[event.currentTarget.id].zan = data.zan;
+      if(data.status == 200){
+        Commentdata[event.currentTarget.id].zan = data.data;
         Commentdata[event.currentTarget.id].iszan = true;
         that.setData({comment:Commentdata});
       }else{
@@ -47,7 +47,7 @@ Page({
   shoucang:function(){
     var that = this;
     util.req('fav/addfav',{iid:that.data.data.id,sk:app.globalData.sk},function(data){
-      if(data.status == 1){
+      if(data.code == 200){
         that.setData({'shoucang':true});
         wx.showToast({
           title: '收藏成功',
@@ -60,7 +60,7 @@ Page({
   qxshoucang:function(){
     var that = this;
     util.req('fav/delfav',{iid:that.data.data.id,sk:app.globalData.sk},function(data){
-      if(data.status == 1){
+      if(data.code == 200){
         that.setData({'shoucang':false});
         wx.showToast({
           title: '取消收藏成功',
@@ -97,8 +97,8 @@ Page({
         return false;
     }
     util.clearError(that);
-    util.req('appointment/add',{form_id:fId,iid:this.data.data.id,name:e.detail.value.name,phone:e.detail.value.phone,surplus:e.detail.value.surplus,sk:app.globalData.sk},function(data){
-      if(data.status == 1){
+    util.req('appointment/add',{form_id:fId,uid:app.globalData.userInfo.id,iid:this.data.data.id,name:e.detail.value.name,phone:e.detail.value.phone,surplus:e.detail.value.surplus,sk:app.globalData.sk},function(data){
+      if(data.code == 200){
         that.setData({modalFlag:false});
         wx.showToast({
           title: '预约成功',
@@ -149,13 +149,18 @@ Page({
       for(var i = 1; i <= data.data.surplus; i++){
         Surpluss.push(i);
       }
+
+      console.log("data.data.time:" + data.data.time)
       that.setData({
-        'data.tm':util.formatTime(new Date(data.data.time*1000)),
+        //'data.tm':util.formatTime(Date.parse(data.data.time)),
+        'data.tm':data.data.time.substring(0,16),
         'data.price':(data.data.price == null)?'面议':data.data.price,
         'data.gender':data.data.gender,
         'notme':notme,
         'Surpluss':Surpluss,
-        'surplus':0
+        'surplus':0,
+        'avatarUrl': data.data.avatarUrl,
+        'nickName':data.data.nickName
         });
     })   
     page = 1; 
@@ -214,7 +219,7 @@ Page({
   },
   getCount:function(id){  
     var that = this;  
-    util.req('comment/get_count',{id:id,type:'info'},function(data){  //获取评论总数
+    util.req('comment/get_count',{iid:id,type:'info'},function(data){  //获取评论总数
       if(data.code == 200){
         that.setData({comnum:data.data});
       }

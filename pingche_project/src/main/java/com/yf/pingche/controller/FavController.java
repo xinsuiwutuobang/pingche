@@ -4,6 +4,7 @@ package com.yf.pingche.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yf.pingche.constant.BaseConstant;
 import com.yf.pingche.entity.Fav;
 import com.yf.pingche.entity.Info;
 import com.yf.pingche.model.ApiResult;
@@ -39,7 +40,6 @@ public class FavController {
     private IInfoService iInfoService;
     /**
      * 是否收藏
-     * @param id
      * @return
      */
     @PostMapping("/isfav")
@@ -54,7 +54,7 @@ public class FavController {
      * @param iid
      * @return
      */
-    @PostMapping("/addFav")
+    @PostMapping("/addfav")
     public Object addFav(Long uid, Long iid) {
         Fav fav = new Fav();
         fav.setUid(uid);
@@ -70,7 +70,7 @@ public class FavController {
      * @param iid
      * @return
      */
-    @PostMapping("/delFav")
+    @PostMapping("/delfav")
     public Object delFav(Long uid, Long iid) {
         boolean ret = iFavService.remove(Wrappers.<Fav>lambdaQuery().eq(Fav::getUid, uid).eq(Fav::getIid, iid));
         return ApiResult.ok(ret);
@@ -84,9 +84,9 @@ public class FavController {
      * @return
      */
     @PostMapping("/myFav")
-    public Object myFav(Long uid, Integer current, Integer size) {
-        IPage<Info> pageInfo = new Page<>(current, size);
-        IPage<Fav> pageFavs = iFavService.page(new Page<>(current, size), Wrappers.<Fav>lambdaQuery().eq(Fav::getUid, uid));
+    public Object myFav(Long uid, Integer current) {
+        IPage<Info> pageInfo = new Page<>(current, BaseConstant.SIZE);
+        IPage<Fav> pageFavs = iFavService.page(new Page<>(current, BaseConstant.SIZE), Wrappers.<Fav>lambdaQuery().eq(Fav::getUid, uid));
         List<Info> infos = new ArrayList<>();
         pageFavs.getRecords().forEach(f -> {
             Info info = iInfoService.getById(f.getIid());

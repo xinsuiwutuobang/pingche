@@ -21,8 +21,8 @@ Page({
   },
   getList:function(){
     var that = this;
-     util.req('dynamic/getlist',{page:page},function(data){
-        var list = data.list;
+     util.req('dynamic/getlist',{uid:app.globalData.userInfo.id,current:page},function(data){
+        var list = data.data;
         if (page == 1) {
           var arr = new Array();
         }else{
@@ -36,7 +36,7 @@ Page({
             id:item.id,
             img:JSON.parse(item.img),
             nickName:item.nickName,
-            time:util.getDateBiff(item.time*1000),
+            time:util.getDateBiff(Date.parse(item.time)),
             zan:item.zan,
             comments: item.comment
           }

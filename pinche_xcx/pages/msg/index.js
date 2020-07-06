@@ -5,7 +5,8 @@ Page({
   data:{},
   msg:function(){
     var that = this;
-    util.req('msg/getall', { sk: app.globalData.sk }, function (data) {
+    util.req('msg/getall', { sk: app.globalData.sk,uid: app.globalData.userInfo.id}, function (data) {
+
       var zan = 0;
       var comment = 0;
       var notice = 0;
@@ -14,17 +15,18 @@ Page({
         that.setData({ data: data });
         return false;      
       }
-      data.data.forEach(function (item) {
-        if (item.type == 'zan') {
-          zan = item.count;
+
+
+      for(let key in data.data){
+        if(key == 'zan'){
+          zan = data.data[key].length;
+        }else if(key == 'comment'){
+          comment = data.data[key].length;
+        }else if(key == 'notice'){
+          notice = data.data[key].length;
         }
-        if (item.type == 'comment') {
-          comment = item.count;
-        }
-        if (item.type == 'notice') {
-          notice = item.count;
-        }
-      })
+      }
+  
       var data = { zan: zan, comment: comment, notice: notice };
       that.setData({ data: data });
   })
