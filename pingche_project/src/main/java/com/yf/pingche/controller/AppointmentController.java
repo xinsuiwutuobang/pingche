@@ -3,9 +3,12 @@ package com.yf.pingche.controller;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.yf.pingche.entity.Appointment;
+import com.yf.pingche.entity.Info;
 import com.yf.pingche.model.ApiResult;
+import com.yf.pingche.model.po.AppointmentPo;
 import com.yf.pingche.service.IAppointmentService;
 import com.yf.pingche.service.IInfoService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +36,7 @@ public class AppointmentController {
     private IAppointmentService iAppointmentService;
     @Autowired
     private IInfoService infoService;
+
 
     @PostMapping("/add")
     public Object add(Long userId, Long iid, String name, String phone, Integer susplus) {
@@ -64,9 +68,36 @@ public class AppointmentController {
     public Object getPassenger(Long uid) {
         return null;
     }
+
+    @PostMapping("/detail")
+    public Object detail(Long id) {
+        Appointment appointment = iAppointmentService.getById(id);
+        Info info = infoService.getById(appointment.getIid());
+        AppointmentPo ret = new AppointmentPo();
+        BeanUtils.copyProperties(appointment, ret);
+        ret.setDeparture(info.getDeparture());
+        ret.setDestination(info.getDestination());
+        ret.setTime(info.getTime());
+        return ApiResult.ok(ret);
+    }
+
+    /**
+     * 同意、拒绝平车
+     * 0:新建，1：同意，2：拒绝
+     * @param aid
+     * @param uid
+     * @param status
+     * @param sk
+     * @param form_id
+     * @return
+     */
     @RequestMapping("/submit")
-    public Object submit(Integer uid,String sk,Integer type,String form_id) {
-        return null;
+    public Object submit(Long aid,Integer uid,Integer status,String sk,String form_id) {
+        Appointment appointment = iAppointmentService.getById(aid);
+        appointment.setStatus(status);
+        appointment.setTime(new Date());
+        boolean ret = iAppointmentService.updateById(appointment);
+        return ApiResult.ok(ret);
     }
 }
 

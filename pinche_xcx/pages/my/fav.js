@@ -15,8 +15,8 @@ Page({
       content: '取消收藏?',
       success: function(res) {
         if (res.confirm) {
-          util.req('fav/delFav',{sk:app.globalData.sk,iid:list[currentTarget].id},function(data){
-            if(data.status == 1){
+          util.req('fav/delFav',{sk:app.globalData.sk,uid:app.globalData.userInfo.id,iid:list[currentTarget].id},function(data){
+            if(data.code == 200){
               list.splice(currentTarget,1);
               that.setData({list:list});
               wx.showToast({
@@ -42,8 +42,8 @@ Page({
   },
   getList(){
     var that = this;
-    util.req('fav/myFav',{sk:app.globalData.sk,iid:app.globalData.userInfo.id,current:page},function(data){
-      if(data.code == 200){
+    util.req('fav/myFav',{sk:app.globalData.sk,uid:app.globalData.userInfo.id,current:page},function(data){
+      if(data.code != 200){
           if(page == 1){  
             console.log(page)        ;
             that.setData({'isnull':true});

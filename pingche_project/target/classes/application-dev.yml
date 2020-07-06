@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://47.104.92.56:3306/pingche?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+swagger:
+  enable: true

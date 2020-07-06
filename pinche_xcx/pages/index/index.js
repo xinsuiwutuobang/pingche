@@ -50,6 +50,7 @@ Page({
   getList:function(date='',start='',over=''){
     var that = this;
     util.req('info/lists',
+    
       {start:start,over:over,date:date,current:page},
       function(data){
         data = data.data;

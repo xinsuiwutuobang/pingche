@@ -62,5 +62,12 @@ public class DynamicController {
         boolean ret = iDynamicService.save(entity);
         return ApiResult.ok(ret);
     }
+
+    @PostMapping("del")
+    public Object del(Long uid, Long id) {
+        boolean ret = iDynamicService.removeById(id);
+        return ApiResult.ok(ret);
+
+    }
 }
 
