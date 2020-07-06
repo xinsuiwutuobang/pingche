@@ -1,7 +1,0 @@
-{
-  "timestamp": "2020-07-05 16:45:28",
-  "status": 500,
-  "error": "Internal Server Error",
-  "message": "No message available",
-  "path": "/api/info/lists"
-}
