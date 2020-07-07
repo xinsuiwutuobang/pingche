@@ -24,12 +24,12 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
-	"appid": "wxa69f78e0d127bce1",
+	"appid": "wx5323a32740a04612",
 	"projectname": "pinche_xcx",
 	"isGameTourist": false,
 	"simulatorType": "wechat",

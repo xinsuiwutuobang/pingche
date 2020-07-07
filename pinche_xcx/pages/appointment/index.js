@@ -11,7 +11,7 @@ Page({
     id = options.id;
     util.req('appointment/detail', { id: options.id, sk: app.globalData.sk }, function (data) {
       console.log(data);
-      data.data.time = util.formatTime(new Date(data.data.time * 1000));
+      data.data.time = data.data.time.substring(0,16);
       that.setData({ data: data.data });
     })
   },
@@ -21,10 +21,11 @@ Page({
       title: '',
       mask: true
     })
+    
     setTimeout(function(){
-      util.req('appointment/submit', { id: id, sk: app.globalData.sk, type: type, form_id: e.detail.formId}, function (data) {
+      util.req('appointment/submit', { aid: id,uid:app.globalData.userInfo.id, sk: app.globalData.sk, status: type, form_id: e.detail.formId}, function (data) {
         wx.hideLoading();
-        if(data.status == 1){
+        if(data.code == 200){
           if(type == 1){
             wx.showToast({
               title: '拼车成功,请留意与乘客联系',

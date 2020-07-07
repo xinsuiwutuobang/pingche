@@ -95,7 +95,7 @@ Page({
       success: function(res) {
         var tempFilePaths = res.tempFilePaths
         wx.uploadFile({
-          url: 'https://xcx.codems.cn/api/upload', 
+          url: '/api/upload', 
           filePath: tempFilePaths[0],
           name: 'file',
           formData:{
@@ -134,32 +134,29 @@ Page({
       'userInfo.nickName':e.detail.value.nickName,
       'userInfo.phone':e.detail.value.phone
     })
-    wx.request({
-      url: 'https://xcx.codems.cn/api/user/editUser',
-      data: {
+    
+    util.req('user/editUser',{
         'userInfo':that.data.userInfo,
+        'province':this.data.province,
+        'city':this.data.city,
+        'county':this.data.county,
+        'nickName':e.detail.value.nickName,
+        'phone':e.detail.value.phone,
+        'gender':this.data.gender,
+        'id':that.data.userInfo.id,
         'sk':app.globalData.sk
-      },
-      method: 'POST', 
-      header: {
-        'Content-type':'application/json'
-      },
-      success: function(res){
-        console.log(res);
-        if(res.data.status == '1'){
+      },function(data){
+        console.log(data);
+        if(data.code = 200){
           util.clearError(that);
-          app.setUserInfo(res.data.user);
+          app.setUserInfo(data.data);
             wx.navigateBack({
               delta: 1
             })
         }else{
           util.isError(res.data.msg, that);
         }
-      },
-      fail: function(res) {
-          util.isError('修改失败', that);
-      }
-    })
+      })
   },
   onLoad: function () {
     var that = this

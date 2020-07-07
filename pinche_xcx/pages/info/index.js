@@ -46,7 +46,7 @@ Page({
   },
   shoucang:function(){
     var that = this;
-    util.req('fav/addfav',{iid:that.data.data.id,sk:app.globalData.sk},function(data){
+    util.req('fav/addfav',{iid:that.data.data.id,uid:app.globalData.userInfo.id,sk:app.globalData.sk},function(data){
       if(data.code == 200){
         that.setData({'shoucang':true});
         wx.showToast({
@@ -59,7 +59,7 @@ Page({
   },
   qxshoucang:function(){
     var that = this;
-    util.req('fav/delfav',{iid:that.data.data.id,sk:app.globalData.sk},function(data){
+    util.req('fav/delFav',{iid:that.data.data.id,uid:app.globalData.userInfo.id,sk:app.globalData.sk},function(data){
       if(data.code == 200){
         that.setData({'shoucang':false});
         wx.showToast({
@@ -125,7 +125,7 @@ Page({
 
     that.setData({
       'userInfo.gender':app.globalData.userInfo.gender,
-      'userInfo.name':(app.globalData.userInfo.name == '')?app.globalData.userInfo.nickName:app.globalData.userInfo.name,
+      'userInfo.name':(app.globalData.userInfo.name == '')?app.globalData. userInfo.nickName:app.globalData.userInfo.name,
       'userInfo.phone':app.globalData.userInfo.phone
     })
 
@@ -233,6 +233,7 @@ Page({
       this.getComment(this.data.data.id);
     }
   },
+  //滚动到底部触发 分页
   tobottom:function(){
     if(!this.data.nomore){
       page++;

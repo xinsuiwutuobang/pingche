@@ -1,3 +1,4 @@
+<!--scroll-view可滚动视图区域  scroll-y 允许纵向滚动 ，scroll-into-view 值应为某子元素id（id不能以数字开头）。设置哪个方向可滚动，则在哪个方向滚动到该元素，bindscrolltolower 滚动到底部/右边时触发-->
 <scroll-view scroll-y="true" style="height: {{height}}px" scroll-into-view="{{toview}}" bindscrolltolower="tobottom" scroll-top="0">
 <view class="page">
     <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorMsg}}</view>

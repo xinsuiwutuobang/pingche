@@ -25,7 +25,7 @@ var wxAppinfo = {
 };
 
 //修改成你的appid及appsecret
-var AppConf = { 'appid': 'wxa69f78e0d127bce1', 'appsecret':'c44cef72c9d2a7bf4f4c651402967b40'};
+var AppConf = { 'appid': 'wx5323a32740a04612', 'appsecret':'78996e7903ff82cb01e7cd187c2e6825'};
 
 function req(url, data, cb) {
   data.appid = AppConf.appid;
@@ -90,7 +90,7 @@ function getDateDiff(dateTimeStamp){
 	var month = day * 30;
 	var now = new Date().getTime();
 	var diffValue = dateTimeStamp - now;
-	if(diffValue < 0){return "已过期";}
+	if(diffValue < 0){return "已完成";}
 	var monthC =diffValue/month;
 	var weekC =diffValue/(7*day);
 	var dayC =diffValue/day;

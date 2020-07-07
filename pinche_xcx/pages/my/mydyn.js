@@ -21,8 +21,8 @@ Page({
   },
   getList: function () {
     var that = this;
-    util.req('dynamic/getList', { page: page, sk: app.globalData.sk }, function (data) {
-      var list = data.list;
+    util.req('dynamic/getlist', { current: page, uid:app.globalData.userInfo.id,sk: app.globalData.sk }, function (data) {
+      var list = data.data;
       if (page == 1) {
         var arr = new Array();
       } else {
@@ -36,7 +36,7 @@ Page({
           id: item.id,
           img: JSON.parse(item.img),
           nickName: item.nickName,
-          time: util.getDateBiff(item.time * 1000),
+          time: util.getDateBiff(Date.parse(item.time)),
           zan: item.zan,
           comments: item.comment
         }
@@ -55,7 +55,7 @@ Page({
           var list = that.data.list;
           var id = list[e.target.dataset.id].id;
           util.req('dynamic/del',{id:id,sk:app.globalData.sk},function(data){
-            if(data.status == '1'){
+            if(data.data){
               list.splice(e.target.dataset.id,1);
               console.log(list);
               that.setData({list:list});

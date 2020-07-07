@@ -70,7 +70,7 @@ public class FavController {
      * @param iid
      * @return
      */
-    @PostMapping("/delfav")
+    @PostMapping("/delFav")
     public Object delFav(Long uid, Long iid) {
         boolean ret = iFavService.remove(Wrappers.<Fav>lambdaQuery().eq(Fav::getUid, uid).eq(Fav::getIid, iid));
         return ApiResult.ok(ret);
@@ -85,16 +85,13 @@ public class FavController {
      */
     @PostMapping("/myFav")
     public Object myFav(Long uid, Integer current) {
-        IPage<Info> pageInfo = new Page<>(current, BaseConstant.SIZE);
         IPage<Fav> pageFavs = iFavService.page(new Page<>(current, BaseConstant.SIZE), Wrappers.<Fav>lambdaQuery().eq(Fav::getUid, uid));
         List<Info> infos = new ArrayList<>();
         pageFavs.getRecords().forEach(f -> {
             Info info = iInfoService.getById(f.getIid());
             infos.add(info);
         });
-        BeanUtils.copyProperties(pageFavs, pageInfo);
-        pageInfo.setRecords(infos);
-        return ApiResult.ok(pageInfo);
+        return ApiResult.ok(infos);
     }
 }
 
