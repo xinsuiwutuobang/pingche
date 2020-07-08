@@ -32,6 +32,6 @@ hs_err_pid*
 .classpath
 .settings
 *.MF
-/pingche_project/target/
 /pingche_project/.idea/
-/pingche_project/log
+pingche_project/.idea/compiler.xml
+*.json
