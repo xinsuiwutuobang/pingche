@@ -161,6 +161,7 @@
         <checkbox-group bindchange="bindAgreeChange" name="isAgree">
             <label class="weui-agree" for="weuiAgree">
                 <view class="weui-agree__text">
+                    <!--改变单选框样式 -->
                     <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
                     <view class="weui-agree__checkbox-icon">
                         <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>

@@ -8,6 +8,7 @@ Page({
   data:{
     sex: ['请选择性别','男','女'],
     type:1,
+    //gender的值作为sex的下标
     gender:0,
     date:today,
     start: minday,
@@ -21,27 +22,34 @@ Page({
     departure:'出发地',
     destination:'目的地'
   },
+  //选择性别
   setSex:function(e){
     this.setData({gender:e.detail.value})
   },
+  //选择日期
   bindDateChange:function(e){
     this.setData({
         date: e.detail.value
     })
   },
+  //选择时间
   bindTimeChange: function (e) {
       this.setData({
           time: e.detail.value
       })
   },
+  //选择类型
   selectType:function(e){
     this.setData({type:e.detail.value})
   },
+  //选择人数
   setsurplus:function(e){
     this.setData({surplus:e.detail.value})
   },
+  //同意条款
   bindAgreeChange: function (e) {
       this.setData({
+          //a!=null&&typeof(a)!=undefined&&a!=''
           isAgree: !!e.detail.value.length
       });
   },
