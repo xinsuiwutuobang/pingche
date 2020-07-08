@@ -9,27 +9,35 @@ Page({
     'back':false,
     'nomore':false,
     'shoucang':false,
+    //是否显示预约按钮
     'notme':false,
+    //预约弹出层
     'modalFlag':false
   },
+  //点击电话图标事件，调用小程序拨打电话
   tel:function(){
     var that = this;
     wx.makePhoneCall({
       phoneNumber: that.data.data.phone
     })
   },
+  //点击评论按钮，滑动到评论view
+  //<scroll-view scroll-y="true" style="height: {{height}}px" scroll-into-view="{{toview}}" bindscrolltolower="tobottom" scroll-top="0">
   tocomment:function(){
     this.setData({toview:'comment_list'});
   },
+  //赞
   zan:function(event){
     var that = this;
     var Commentdata = this.data.comment;
     util.req('comment/zan',{
+      //wiew id属性
       'cid':Commentdata[event.currentTarget.id].id,
       'uid':app.globalData.userInfo.id
       },function(data){
-      if(data.status == 200){
-        Commentdata[event.currentTarget.id].zan = data.data;
+      if(data.code == 200){
+        //this.data.comment[event.currentTarget.id].zan = this.data.comment[event.currentTarget.id].zan  + 1;
+        Commentdata[event.currentTarget.id].zan = Commentdata[event.currentTarget.id].zan + 1;
         Commentdata[event.currentTarget.id].iszan = true;
         that.setData({comment:Commentdata});
       }else{
@@ -44,6 +52,7 @@ Page({
       }
     })
   },
+  //收藏
   shoucang:function(){
     var that = this;
     util.req('fav/addfav',{iid:that.data.data.id,uid:app.globalData.userInfo.id,sk:app.globalData.sk},function(data){
@@ -57,6 +66,7 @@ Page({
       }
     })
   },
+  //取消收藏
   qxshoucang:function(){
     var that = this;
     util.req('fav/delFav',{iid:that.data.data.id,uid:app.globalData.userInfo.id,sk:app.globalData.sk},function(data){
@@ -70,12 +80,16 @@ Page({
       }
     })
   },
+
+  //预约弹出层开关
   madal:function(){
     this.setData({modalFlag:true});
   },
+  //预约弹出层关闭
   modalOk:function(){
     this.setData({modalFlag:false});
   },
+  //预约
   appointment:function(e){
     var fId = e.detail.formId;
     var that = this;
@@ -111,10 +125,12 @@ Page({
       }
     })
   },
+  //选择剩余座位
   setsurplus:function(e){
     this.setData({surplus:e.detail.value})
   },
 
+  //初始化执行
   onLoad:function(options){
     var that = this;
     wx.getSystemInfo({
@@ -142,7 +158,8 @@ Page({
       that.setData({data:data.data});
       if(data.data.uid == app.globalData.userInfo.id){
         var notme = false;
-      }else{
+        //已过期状态等待确认
+      }else if(1 == data.data.type && data.data.surplus > 0){
         var notme = true;
       }
       var Surpluss = new Array('请选择人数');
@@ -155,21 +172,20 @@ Page({
         //'data.tm':util.formatTime(Date.parse(data.data.time)),
         'data.tm':data.data.time.substring(0,16),
         'data.price':(data.data.price == null)?'面议':data.data.price,
-        'data.gender':data.data.gender,
         'notme':notme,
         'Surpluss':Surpluss,
         'surplus':0,
-        'avatarUrl': data.data.avatarUrl,
-        'nickName':data.data.nickName
         });
     })   
     page = 1; 
     this.getCount(options.id);
     this.getComment(options.id);
+    //获取当前页面栈。数组中第一个元素为首页，最后一个元素为当前页面。
     if(getCurrentPages().length == 1){
       that.setData({'back':true});
     }
   },
+  //图片预览
   previmg:function(e){
     var that = this;    
     wx.previewImage({
@@ -177,6 +193,7 @@ Page({
       urls: that.data.comment[e.target.dataset.iid].img,
     })
   },
+  //获取评论
   getComment:function(id){
     var that = this;
     util.req('comment/get',{id:id,type:'info',current:page},function(data){
@@ -206,17 +223,14 @@ Page({
       }
     })
   },
+  //返回首页
   toIndex:function(){
     wx.reLaunch({
       url: '/pages/index/index'
     })
   },
-  onShareAppMessage: function () { 
-    return {
-      title: '拼车详情',
-      path: 'pages/info/index?id='+this.data.data.id
-    }
-  },
+ 
+  //评论数
   getCount:function(id){  
     var that = this;  
     util.req('comment/get_count',{iid:id,type:'info'},function(data){  //获取评论总数
@@ -225,12 +239,24 @@ Page({
       }
     })
   },
+
   onShow:function(){      
     page = 1; 
-
     if(this.data.data) {
       this.getCount(this.data.data.id);
       this.getComment(this.data.data.id);
+    }
+  },
+   /**
+   * 用户点击右上角转发
+    监听用户点击页面内转发按钮（<button> 组件 open-type="share"）或右上角菜单“转发”按钮的行为，并自定义转发内容。
+    注意：只有定义了此事件处理函数，右上角菜单才会显示“转发”按钮
+    此事件需要 return 一个 Object，用于自定义转发内容
+   */
+  onShareAppMessage: function () { 
+    return {
+      title: '拼车详情',
+      path: 'pages/info/index?id='+this.data.data.id
     }
   },
   //滚动到底部触发 分页

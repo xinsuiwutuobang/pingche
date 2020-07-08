@@ -39,14 +39,14 @@ public class AppointmentController {
 
 
     @PostMapping("/add")
-    public Object add(Long userId, Long iid, String name, String phone, Integer susplus) {
-        Appointment check = iAppointmentService.getOne(Wrappers.<Appointment>lambdaQuery().eq(Appointment::getIid, iid).eq(Appointment::getUid, userId));
+    public Object add(Long uid, Long iid, String name, String phone, Integer surplus) {
+        Appointment check = iAppointmentService.getOne(Wrappers.<Appointment>lambdaQuery().eq(Appointment::getIid, iid).eq(Appointment::getUid, uid));
         if (check != null) {
             return ApiResult.fail("请不要重复预约");
         }
         Appointment entity = new Appointment();
         //TODO 状态
-        Appointment appointment = entity.setIid(iid).setName(name).setPhone(phone).setStatus(0).setSurplus(susplus).setTime(new Date());
+        Appointment appointment = entity.setIid(iid).setUid(uid).setName(name).setPhone(phone).setStatus(0).setSurplus(surplus).setTime(new Date());
         iAppointmentService.save(appointment);
         //TODO 发送模板消息给司机
         return ApiResult.ok("预约成功");

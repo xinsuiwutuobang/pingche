@@ -6,9 +6,9 @@
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <!-- 级别过滤 -->
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>DEBUG</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
+            <level>INFO</level>
+            <!--<onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>-->
         </filter>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
@@ -30,7 +30,7 @@
         </encoder>
     </appender>
 
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="console" />
         <appender-ref ref="file" />
     </root>

@@ -88,10 +88,8 @@ public class CommentController {
     }
 
     @PostMapping("/add")
-    public Object add(Long iid, Long uid,String type, String content, String img) {
-        Comment comment = new Comment();
-        comment.setUid(uid).setIid(iid).setType(type).setTime(new Date()).setContent(content)
-                .setZan(0).setImg(img);
+    public Object add(Comment comment) {
+        comment.setZan(0).setTime(new Date());
         boolean ret = iCommentService.save(comment);
         return ApiResult.ok(ret);
     }

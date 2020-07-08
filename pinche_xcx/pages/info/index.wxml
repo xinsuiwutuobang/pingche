@@ -9,8 +9,8 @@
         <view class="username">
             {{data.nickName}}
         </view>
-        <view class="add" wx:if="{{data.type == 1}}" wx:if="{{notme}}" bindtap="madal">
-            <button type="mini"><image src="/img/add.png" class="icon-add"></image>预约</button>
+        <view class="add"  wx:if="{{notme}}" bindtap="madal">
+            <button type="mini"><image src="/img/add.png" class="icon-add"></image>预约{{notme}}</button>
         </view>
     </view>
 
@@ -91,6 +91,7 @@
 </view>
 </scroll-view>
 
+<!-- -->
 <view class="back" wx:if="{{back}}" bindtap="toIndex">
     <image src="/img/back.png"></image>
 </view>
@@ -100,6 +101,7 @@
     <view class="ft-icon"><view class="tocomment" bindtap="tocomment"><image src="/img/msg.png" class="msg"></image><text class="comnum">{{comnum}}</text></view><image wx:if="{{!shoucang}}" src="/img/shoucang.png" class="shoucang" bindtap="shoucang"></image><image wx:if="{{shoucang}}" bindtap="qxshoucang" src="/img/shoucang1.png" class="shoucang"></image></view>
 </view>
 
+<!--预约弹出层-->
 <modal class="modal" hidden="{{!modalFlag}}" title="申请预约" no-cancel bindconfirm="modalOk" confirmText="不了，我再看看">  
     <view class="dew">  
       <form report-submit="true" bindsubmit="appointment">

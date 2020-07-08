@@ -91,3 +91,8 @@ wx:
 
 #wxa69f78e0d127bce1
 #c44cef72c9d2a7bf4f4c651402967b40
+
+
+# 文件上传下载配置
+upload-path: /opt/pingche/upload/
+resource-access-path: /resource/
