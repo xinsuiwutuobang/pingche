@@ -86,8 +86,13 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 wx:
+<<<<<<< HEAD
   appId: wx5323a32740a04612
   secret: 78996e7903ff82cb01e7cd187c2e6825
+=======
+  appId: wxa69f78e0d127bce1
+  secret: c44cef72c9d2a7bf4f4c651402967b40
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
 
 #wxa69f78e0d127bce1
 #c44cef72c9d2a7bf4f4c651402967b40

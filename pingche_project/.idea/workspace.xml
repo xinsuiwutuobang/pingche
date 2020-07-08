@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ec7720d-eeab-41b6-8f24-dfae567a60d8" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/../pinche_xcx/pages/appointment/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../pinche_xcx/pages/appointment/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pinche_xcx/pages/appointment/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../pinche_xcx/pages/appointment/index.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pinche_xcx/pages/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../pinche_xcx/pages/index/index.js" afterDir="false" />
@@ -9,11 +10,17 @@
       <change beforePath="$PROJECT_DIR$/../pinche_xcx/pages/my/fav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../pinche_xcx/pages/my/fav.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pinche_xcx/pages/my/info.js" beforeDir="false" afterPath="$PROJECT_DIR$/../pinche_xcx/pages/my/info.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pinche_xcx/pages/my/mydyn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../pinche_xcx/pages/my/mydyn.js" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/../pinche_xcx/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../pinche_xcx/project.config.json" afterDir="false" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/AppointmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/DynamicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/DynamicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/FavController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/FavController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/UserController.java" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+=======
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,6 +36,7 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/DynamicController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="369">
@@ -36,29 +44,50 @@
               <folding>
                 <element signature="e#1057#1066#0" expanded="true" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/PingcheApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/FavController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="438">
               <caret line="95" column="1" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/AppointmentController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="95" selection-start-line="95" selection-end-line="95" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/entity/Info.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="311">
               <caret line="59" selection-start-line="59" selection-end-line="59" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/FavController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="72" column="23" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/AppointmentController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-644">
@@ -70,19 +99,33 @@
                 <element signature="e#2361#2362#0" expanded="true" />
                 <element signature="e#2388#2389#0" expanded="true" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/DynamicController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="68" column="33" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
               <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
@@ -97,15 +140,29 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="386">
               <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/entity/Appointment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-317">
+              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/model/po/BasePo.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="351">
               <caret line="16" column="28" selection-start-line="15" selection-start-column="4" selection-end-line="16" selection-end-column="28" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/model/po/AppointmentPo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -114,6 +171,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/model/po/MsgPo.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
@@ -121,11 +179,18 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/model/po/InfoPo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/model/po/CommentPo.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
@@ -133,6 +198,12 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/entity/Info.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="40" column="31" selection-start-line="38" selection-start-column="4" selection-end-line="40" selection-end-column="31" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
             </state>
           </provider>
         </entry>
@@ -164,15 +235,25 @@
         <option value="$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/FavController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/DynamicController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/UserController.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+=======
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+<<<<<<< HEAD
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
+=======
+    <option name="x" value="490" />
+    <option name="y" value="120" />
+    <option name="width" value="1270" />
+    <option name="height" value="1225" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -180,7 +261,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
+=======
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -222,6 +306,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="pingche" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="constant" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -231,6 +316,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="pingche" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -252,6 +339,7 @@
               <item name="model" type="462c0819:PsiDirectoryNode" />
               <item name="po" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
             <path>
               <item name="pingche" type="b2602c69:ProjectViewProjectNode" />
               <item name="pingche_project" type="462c0819:PsiDirectoryNode" />
@@ -259,11 +347,17 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+=======
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="CatdeaLogs" />
+=======
+      <pane id="PackagesPane" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -312,6 +406,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="7999000" />
   </component>
   <component name="ToolWindowManager">
@@ -347,6 +442,43 @@
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Bean Validation" order="7" />
+=======
+    <option name="totallyTimeSpent" value="6552000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Web" side_tool="true" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.32960895" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39944133" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Bean Validation" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,8 +526,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/entity/Info.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="311">
           <caret line="59" selection-start-line="59" selection-end-line="59" />
+=======
+        <state relative-caret-position="163">
+          <caret line="40" column="31" selection-start-line="38" selection-start-column="4" selection-end-line="40" selection-end-column="31" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
         </state>
       </provider>
     </entry>
@@ -411,6 +548,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/AppointmentController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-644">
           <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
           <folding>
@@ -420,18 +558,28 @@
             <element signature="e#2361#2362#0" expanded="true" />
             <element signature="e#2388#2389#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="110">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/FavController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="438">
           <caret line="95" column="1" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
+=======
+        <state relative-caret-position="26">
+          <caret line="72" column="23" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/DynamicController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="369">
           <caret line="62" column="33" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
           <folding>
@@ -444,16 +592,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="639">
           <caret line="71" selection-start-line="71" selection-end-line="71" />
+=======
+        <state relative-caret-position="317">
+          <caret line="68" column="33" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="180">
+=======
+        <state relative-caret-position="303">
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
           <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yf/pingche/controller/InfoController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -472,5 +629,7 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 04cf1dffb937ff1f0116036113d8e91a9e977410
   </component>
 </project>
