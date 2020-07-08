@@ -33,5 +33,5 @@ hs_err_pid*
 .settings
 *.MF
 /pingche_project/.idea/
-pingche_project/.idea/compiler.xml
+pingche_project/.idea/**
 *.json
