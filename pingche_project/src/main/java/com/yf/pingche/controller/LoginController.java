@@ -5,13 +5,13 @@ import com.yf.pingche.entity.User;
 import com.yf.pingche.model.ApiResult;
 import com.yf.pingche.model.WXSessionModel;
 import com.yf.pingche.service.IUserService;
-import com.yf.pingche.utils.HttpClientUtil;
 import com.yf.pingche.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +35,9 @@ public class LoginController {
 
     @Autowired
     private IUserService iUserService;
+    @Autowired
+    private RestTemplate restTemplate;
+
 
     /**
      * 登录
@@ -50,8 +53,11 @@ public class LoginController {
         param.put("secret", wxSecret);
         param.put("js_code", code);
         param.put("grant_type", "authorization_code");
-        String wxResult = HttpClientUtil.doGet(url, param);
-        WXSessionModel wxSessionModel = JsonUtils.jsonToPojo(wxResult, WXSessionModel.class);
+        String loginUrl =
+                url + "?appid={appid}&secret={secret}&js_code={js_code}&grant_type={grant_type}";
+        WXSessionModel wxSessionModel = restTemplate.getForObject(loginUrl, WXSessionModel.class, param);
+       /* String wxResult = HttpClientUtil.doGet(url, param);
+        WXSessionModel wxSessionModel = JsonUtils.jsonToPojo(wxResult, WXSessionModel.class);*/
         User check = iUserService.getOne(Wrappers.<User>lambdaQuery()
                 .eq(User::getOpenId, wxSessionModel.getOpenid()));
         user.setOpenId(wxSessionModel.getOpenid());
