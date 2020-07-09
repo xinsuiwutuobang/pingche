@@ -66,6 +66,10 @@ server:
   port: 8099
   servlet:
     context-path: /api
+  ssl:
+    key-store: classpath:4181697_www.xinsuiwutuobang.cn.pfx
+    key-store-type: PKCS12
+    key-store-password: OU7GHeV7
 #启用shutdown
 management:
   endpoint:
