@@ -76,7 +76,7 @@ Page({
       'content':e.detail.value,
       'sk':app.globalData.sk
       },function(data){
-      if(data.status == 1){
+      if(data.code == 200){
         var list = that.data.list;
         list[that.data.nowid].comments = (list[that.data.nowid].comments) ? list[that.data.nowid].comments:(new Array());
         list[that.data.nowid].comments.unshift({id: data.id, iid: that.data.list[that.data.nowid].id, content: e.detail.value, nickName: app.globalData.userInfo.nickName,reply:(that.data.reply).replace('回复','')})

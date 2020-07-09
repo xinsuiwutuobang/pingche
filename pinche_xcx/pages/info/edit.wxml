@@ -19,6 +19,7 @@
                     </view>
                     <view class="weui-cell__bd">
                         <radio-group bindchange="radioChange">
+                            <!--picker value:表示选择了 range 中的第几个（下标从 0 开始）--> 
                             <picker mode="selector" value="{{data.gender}}" name="gender" range="{{sex}}" bindchange="setSex">
                                 <view class="weui-input">{{sex[data.gender]}}</view>
                             </picker>

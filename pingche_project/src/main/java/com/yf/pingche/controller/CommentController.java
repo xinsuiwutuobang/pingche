@@ -5,11 +5,13 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yf.pingche.entity.Comment;
+import com.yf.pingche.entity.Info;
 import com.yf.pingche.entity.User;
 import com.yf.pingche.entity.Zan;
 import com.yf.pingche.model.ApiResult;
 import com.yf.pingche.model.po.CommentPo;
 import com.yf.pingche.service.ICommentService;
+import com.yf.pingche.service.IInfoService;
 import com.yf.pingche.service.IUserService;
 import com.yf.pingche.service.IZanService;
 import org.springframework.beans.BeanUtils;
@@ -45,6 +47,9 @@ public class CommentController {
 
     @Autowired
     private IUserService iUserService;
+
+    @Autowired
+    private IInfoService iInfoService;
 
     @PostMapping("/get_count")
     public Object getCount(Long iid) {
@@ -91,6 +96,10 @@ public class CommentController {
     public Object add(Comment comment) {
         comment.setZan(0).setTime(new Date());
         boolean ret = iCommentService.save(comment);
+        //发布评论消息
+        Info info = iInfoService.getById(comment.getIid());
+        Integer toUid = info.getUid();
+
         return ApiResult.ok(ret);
     }
 }

@@ -30,7 +30,7 @@ public class UploadController {
     @Value("${resource-access-path}")
     private String resourceAccessPath;
     @RequestMapping("/upload")
-    public Object upload(MultipartFile file) throws Exception {
+    public Object upload(MultipartFile file,String user) throws Exception {
         // 上传文件，返回保存的文件名称
         String saveFileName = UploadUtil
                 .upload(uploadPath, file, originalFilename -> {
