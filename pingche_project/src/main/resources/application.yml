@@ -64,6 +64,8 @@ knife4j:
 
 server:
   port: 8099
+  http:
+    port: 8010
   servlet:
     context-path: /api
   ssl:

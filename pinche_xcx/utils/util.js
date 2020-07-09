@@ -16,7 +16,7 @@ function formatNumber(n) {
 }  
 
   
-var rootDocment = 'http://localhost:8099/api/';
+var rootDocment = 'https://47.104.92.56:8099/api/';
 
 
 var wxAppinfo = {

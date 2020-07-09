@@ -6,6 +6,7 @@ import com.yf.pingche.model.ApiResult;
 import com.yf.pingche.model.WXSessionModel;
 import com.yf.pingche.service.IUserService;
 import com.yf.pingche.utils.JsonUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +25,7 @@ import java.util.Map;
  * @author yangfei
  * @since 2019-05-18
  */
+@Slf4j
 @RequestMapping("/user")
 @RestController
 public class LoginController {
@@ -55,9 +57,10 @@ public class LoginController {
         param.put("grant_type", "authorization_code");
         String loginUrl =
                 url + "?appid={appid}&secret={secret}&js_code={js_code}&grant_type={grant_type}";
-        WXSessionModel wxSessionModel = restTemplate.getForObject(loginUrl, WXSessionModel.class, param);
-       /* String wxResult = HttpClientUtil.doGet(url, param);
-        WXSessionModel wxSessionModel = JsonUtils.jsonToPojo(wxResult, WXSessionModel.class);*/
+        String wxResult = restTemplate.getForObject(loginUrl, String.class, param);
+       /* String wxResult = HttpClientUtil.doGet(url, param);*/
+        log.info("wxResult:{}", wxResult);
+        WXSessionModel wxSessionModel = JsonUtils.jsonToPojo(wxResult, WXSessionModel.class);
         User check = iUserService.getOne(Wrappers.<User>lambdaQuery()
                 .eq(User::getOpenId, wxSessionModel.getOpenid()));
         user.setOpenId(wxSessionModel.getOpenid());
