@@ -81,7 +81,8 @@ public class AppointmentController {
     public Object my(Long uid,Integer type) {
         QueryWrapper<Info> wrapper = new QueryWrapper<>();
         QueryWrapper<Appointment> appointmentQueryWrapper = new QueryWrapper<>();
-        wrapper.lambda().eq(Info::getType, type);
+        //我是车主，我的预约；我是乘客，我的预约。info都是车找人才能预约，别人预约我的车找人，我预约别人的车找人
+        wrapper.lambda().eq(Info::getType, 1);
         if (type.equals(1)) {
             wrapper.lambda().eq(Info::getUid,uid);
         } else {
