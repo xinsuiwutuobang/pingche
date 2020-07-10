@@ -28,7 +28,7 @@
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.11.3",
 	"appid": "wx5323a32740a04612",
 	"projectname": "pinche_xcx",
 	"isGameTourist": false,

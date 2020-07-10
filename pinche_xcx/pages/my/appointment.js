@@ -37,7 +37,7 @@ Page({
   },
   getPassenger: function () {
     var that = this;
-    util.req('appointment/getPassenger',{sk:app.globalData.sk},function(data){
+    util.req('appointment/my',{uid:app.globalData.userInfo.id,type:2,sk:app.globalData.sk},function(data){
       if(data.status == 1){
         var list = data.data;
         var arr = new Array();
@@ -63,7 +63,7 @@ Page({
   },
   getMy: function () {
     var that = this;
-    util.req('appointment/my', {uid:app.globalData.userInfo.id, sk: app.globalData.sk }, function (data) {
+    util.req('appointment/my', {uid:app.globalData.userInfo.id, type:1,sk: app.globalData.sk }, function (data) {
       if (data.code == 200) {
         var list = data.data;
         that.setData({my:list});

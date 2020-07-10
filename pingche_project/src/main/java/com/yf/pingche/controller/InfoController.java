@@ -78,7 +78,7 @@ public class InfoController {
     @PostMapping("/index")
     public Object index(Long id) {
         Info ret = iInfoService.getById(id);
-        Integer uid = ret.getUid();
+        Long uid = ret.getUid();
         User user = iUserService.getById(uid);
         InfoPo infoPo = new InfoPo();
         BeanUtils.copyProperties(ret,infoPo);

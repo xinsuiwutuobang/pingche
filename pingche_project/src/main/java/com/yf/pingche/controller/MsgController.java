@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -50,7 +51,7 @@ public class MsgController {
     @RequestMapping("/get")
     public Object get(Long uid,String type, Integer current) {
         IPage<Msg> page = iMsgService.page(new Page<>(current, BaseConstant.SIZE),
-                Wrappers.<Msg>lambdaQuery().eq(Msg::getUid, uid).eq(Msg::getType,type).orderByDesc(Msg::getTime));
+                Wrappers.<Msg>lambdaQuery().eq(Msg::getUid, uid).eq(Msg::getType,type).eq(Msg::getSee,BaseConstant.NO_ZERO).orderByDesc(Msg::getTime));
         List<MsgPo> ret = new ArrayList<>();
         page.getRecords().forEach(m -> {
             MsgPo po = new MsgPo();
@@ -59,7 +60,9 @@ public class MsgController {
             po.setAvatarUrl(user.getAvatarUrl());
             po.setNickName(user.getNickName());
             ret.add(po);
-
+            m.setSee(BaseConstant.YES_ONE);
+            m.setTime(new Date());
+            iMsgService.updateById(m);
         });
         return ApiResult.ok(ret);
     }
@@ -67,7 +70,7 @@ public class MsgController {
     @PostMapping("/getall")
     public Object getAll(Long uid) {
         List<Msg> list = iMsgService
-                .list(Wrappers.<Msg>lambdaQuery().eq(Msg::getUid, uid).orderByDesc(Msg::getTime));
+                .list(Wrappers.<Msg>lambdaQuery().eq(Msg::getUid, uid).eq(Msg::getSee,BaseConstant.NO_ZERO).orderByDesc(Msg::getTime));
         Map<String, List<Msg>> ret = list.stream().collect(Collectors.groupingBy(Msg::getType));
         return ApiResult.ok(ret);
     }

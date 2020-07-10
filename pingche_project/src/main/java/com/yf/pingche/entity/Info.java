@@ -30,7 +30,7 @@ public class Info implements Serializable {
 private static final long serialVersionUID=1L;
 
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Long id;
 
     private Date date;
 
@@ -54,7 +54,7 @@ private static final long serialVersionUID=1L;
 
     private String vehicle;
 
-    private Integer uid;
+    private Long uid;
 
     private Integer status;
 

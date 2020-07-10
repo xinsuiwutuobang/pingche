@@ -25,13 +25,24 @@ Page({
     });
 
   },
-
+  bindMessage: function(e){
+    wx.requestSubscribeMessage({
+      tmplIds: ['XX_jgKWA13DomV7ZZ_oI-UGRABqJZtmRrU7Uogtxwhc'],
+      success(res){
+        console.log('授权评论回复消息成功',res)
+      },
+      fail(res){
+        console.log('授权评论回复消息失败',res)
+      }
+    })
+  },
   bindGetUserInfo: function (e) {
+   
     var that = this;
     var userinfo = e.detail;
     wx.login({
       success: function (res) {
-
+       
         
         console.log(res);
         wx.getUserInfo({
@@ -59,6 +70,7 @@ Page({
             // that.loginFail();
           }
         })
+        
       }
     })
   }

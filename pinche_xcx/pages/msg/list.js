@@ -16,8 +16,6 @@ Page({
       if(page == 1){
         arr = new Array();
       }
-
-
       data.data.forEach(function(item){
         arr.push({
           time: util.getDateBiff(Date.parse(item.time)),

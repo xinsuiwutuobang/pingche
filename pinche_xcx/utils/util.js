@@ -16,8 +16,8 @@ function formatNumber(n) {
 }  
 
   
-var rootDocment = 'https://47.104.92.56:8099/api/';
-
+//var rootDocment = 'https://47.104.92.56:8099/api/';
+var rootDocment = 'https://localhost:8099/api/';
 
 var wxAppinfo = {
   'name': '同城拼车',

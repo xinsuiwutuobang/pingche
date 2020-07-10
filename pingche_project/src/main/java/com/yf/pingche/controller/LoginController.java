@@ -3,9 +3,13 @@ package com.yf.pingche.controller;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.yf.pingche.entity.User;
 import com.yf.pingche.model.ApiResult;
+import com.yf.pingche.model.TemplateData;
+import com.yf.pingche.model.WXMessage;
 import com.yf.pingche.model.WXSessionModel;
 import com.yf.pingche.service.IUserService;
+import com.yf.pingche.utils.DateUtil;
 import com.yf.pingche.utils.JsonUtils;
+import com.yf.pingche.utils.WXMessageUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +40,8 @@ public class LoginController {
     @Value("${wx.secret}")
     private String wxSecret;
 
+    @Value("${wx.message.reply.templateid}")
+    private String templateid;
     @Autowired
     private IUserService iUserService;
     @Autowired
@@ -76,5 +83,18 @@ public class LoginController {
         }
         String openid = wxSessionModel.getOpenid();
         return ApiResult.ok(check == null ? user : check);
+    }
+
+    @RequestMapping("/sendMesssage")
+    public Object sendMessage(String openid) {
+        WXMessage message = WXMessage.builder().touser(openid).template_id(templateid).build();
+        Map<String, TemplateData> params = new HashMap<>(3);
+        params.put("thing1", new TemplateData("小程序入门课程"));
+        params.put("thing2", new TemplateData("杭州浙江大学"));
+        params.put("time3", new TemplateData(DateUtil.getDateStr(new Date(),DateUtil.YYYYMMDDHHMM)));
+        message.setData(params);
+        String push = WXMessageUtil.push(message);
+        log.info(push);
+        return push;
     }
 }

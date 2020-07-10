@@ -94,8 +94,11 @@ mybatis-plus:
 wx:
   appId: wx5323a32740a04612
   secret: 78996e7903ff82cb01e7cd187c2e6825
-  messageurl: https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token={access_token}&touser={touser}&template_id={template_id}&data={data}
-
+  getAccessTokenUrl: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={APPID}&secret={APPSECRET}
+  message:
+    reply:
+      messageurl: https://api.weixin.qq.com/cgi-bin/message/subscribe/send
+      templateid: XX_jgKWA13DomV7ZZ_oI-UGRABqJZtmRrU7Uogtxwhc
 #wxa69f78e0d127bce1
 #c44cef72c9d2a7bf4f4c651402967b40
 
