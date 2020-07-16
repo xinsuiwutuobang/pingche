@@ -63,7 +63,7 @@ knife4j:
 #  file: logs/${spring.application.name}
 
 server:
-  port: 8099
+  port: 80
   http:
     port: 8010
   servlet:

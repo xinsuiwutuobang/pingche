@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,13 +24,13 @@ import java.time.format.DateTimeFormatter;
  */
 @RestController
 @Slf4j
-@RequestMapping("/up")
+@RequestMapping("/upload")
 public class UploadController {
     @Value("${upload-path}")
     private String uploadPath;
     @Value("${resource-access-path}")
     private String resourceAccessPath;
-    @RequestMapping("/upload")
+    @PostMapping
     public Object upload(MultipartFile file,String user) throws Exception {
         // 上传文件，返回保存的文件名称
         String saveFileName = UploadUtil
