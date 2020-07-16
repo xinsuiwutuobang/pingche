@@ -38,7 +38,7 @@ Page({
   getPassenger: function () {
     var that = this;
     util.req('appointment/my',{uid:app.globalData.userInfo.id,type:2,sk:app.globalData.sk},function(data){
-      if(data.status == 1){
+      if(data.code == 200){
         var list = data.data;
         var arr = new Array();
         list.forEach(function (item) {
@@ -48,10 +48,23 @@ Page({
               var status = 3;
               var phone = false;
           }
+          try{
+            var start = ((item.departure).split('市')[1]).replace(/([\u4e00-\u9fa5]+[县区]).+/, '$1');
+          }catch(e){
+            //var start = (item.departure).split(/[县区]/)[0];
+            var start = (item.departure).replace(/([\u4e00-\u9fa5]+[县区]).+/, '$1');
+          }
+
+          try {
+            var over = ((item.destination).split('市')[1]).replace(/([\u4e00-\u9fa5]+[县区]).+/, '$1');
+          } catch (e) {
+            //var over = (item.destination).split(/[县区]/)[0];
+            var over = (item.destination).replace(/([\u4e00-\u9fa5]+[县区]).+/, '$1');
+          }
           arr.push({
-            departure: ((item.departure).split('市')[1]).replace(/([\u4e00-\u9fa5]+[县区]).+/, '$1'),
-            destination: ((item.destination).split('市')[1]).replace(/([\u4e00-\u9fa5]+[县区]).+/, '$1'),
-            time: util.formatTime(new Date(item.time * 1000)),
+            departure: start,
+            destination: over,
+            time: util.formatTime(new Date(item.time)),
             status: status,
             id:item.id,
             phone: phone

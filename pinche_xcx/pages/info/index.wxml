@@ -10,7 +10,7 @@
             {{data.nickName}}
         </view>
         <view class="add"  wx:if="{{notme}}" bindtap="madal">
-            <button type="mini"><image src="/img/add.png" class="icon-add"></image>预约{{notme}}</button>
+            <button type="mini"><image src="/img/add.png" class="icon-add"></image>预约</button>
         </view>
     </view>
 

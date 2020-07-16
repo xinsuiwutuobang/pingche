@@ -74,13 +74,15 @@ Page({
           try{
             var start = ((item.departure).split('市')[1]).replace(/([\u4e00-\u9fa5]+[县区]).+/, '$1');
           }catch(e){
-            var start = (item.departure).split(/[县区]/)[0];
+            //var start = (item.departure).split(/[县区]/)[0];
+            var start = (item.departure).replace(/([\u4e00-\u9fa5]+[县区]).+/, '$1');
           }
 
           try {
             var over = ((item.destination).split('市')[1]).replace(/([\u4e00-\u9fa5]+[县区]).+/, '$1');
           } catch (e) {
-            var over = (item.destination).split(/[县区]/)[0];
+            //var over = (item.destination).split(/[县区]/)[0];
+            var over = (item.destination).replace(/([\u4e00-\u9fa5]+[县区]).+/, '$1');
           }
 
           var obj = {

@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -94,11 +95,33 @@ public class AppointmentController {
             appointmentQueryWrapper.lambda().in(Appointment::getIid, infoIds).orderByDesc(Appointment::getTime);
             List<Appointment> ret = iAppointmentService
                     .list(appointmentQueryWrapper);
-            return ApiResult.ok(ret);
+            List<Long> infoRetIds = ret.stream().map(Appointment::getIid).collect(Collectors.toList());
+            List<Info> infos = (List<Info>) infoService.listByIds(infoRetIds);
+            ret.forEach(i -> {
+                infos.forEach(j -> {
+                    if (i.getIid().equals(j.getId())) {
+                        j.setStatus(i.getStatus());
+                    }
+                });
+            });
+            for (int i = 0; i < ret.size(); i++) {
+                for (int j = 0; j < infos.size(); j++) {
+                    if (infos.get(i).getId().equals(ret.get(j).getIid())) {
+                        ret.get(j).setStatus(infos.get(i).getStatus());
+                        break;
+                    }
+                }
+            }
+            return ApiResult.ok(infos);
         }
         return ApiResult.ok(null);
     }
 
+    /**
+     * 我的-我的预约（新建）数量
+     * @param uid
+     * @return
+     */
     @PostMapping("/mycount")
     public Object mycount(Long uid) {
         int count = iAppointmentService.count(Wrappers.<Appointment>lambdaQuery().eq(Appointment::getUid, uid).eq(Appointment::getStatus, 0));

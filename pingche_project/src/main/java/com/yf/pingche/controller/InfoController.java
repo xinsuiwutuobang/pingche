@@ -6,10 +6,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yf.pingche.constant.BaseConstant;
+import com.yf.pingche.entity.Appointment;
 import com.yf.pingche.entity.Info;
 import com.yf.pingche.entity.User;
 import com.yf.pingche.model.ApiResult;
 import com.yf.pingche.model.po.InfoPo;
+import com.yf.pingche.service.IAppointmentService;
 import com.yf.pingche.service.IInfoService;
 import com.yf.pingche.service.IUserService;
 import com.yf.pingche.utils.DateUtil;
@@ -44,6 +46,8 @@ public class InfoController {
     private IInfoService iInfoService;
     @Autowired
     private IUserService iUserService;
+    @Autowired
+    private IAppointmentService iAppointmentService;
     @PostMapping("/lists")
     public Object lists(String start, String over, String date,Integer current, Integer size ) {
         LambdaQueryWrapper<Info> wrapper = Wrappers.lambdaQuery();
@@ -84,6 +88,13 @@ public class InfoController {
         BeanUtils.copyProperties(ret,infoPo);
         infoPo.setAvatarUrl(user.getAvatarUrl());
         infoPo.setNickName(user.getNickName());
+        Appointment checkAppointment = iAppointmentService
+                .getOne(Wrappers.<Appointment>lambdaQuery().eq(Appointment::getIid, id)
+                        .eq(Appointment::getUid, uid));
+        if (checkAppointment != null) {
+            infoPo.setStatus(checkAppointment.getStatus());
+        }
+
         return ApiResult.ok(infoPo);
     }
     /**

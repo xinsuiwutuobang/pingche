@@ -175,6 +175,7 @@ Page({
         'notme':notme,
         'Surpluss':Surpluss,
         'surplus':0,
+        'status': data.data.status
         });
     })   
     page = 1; 

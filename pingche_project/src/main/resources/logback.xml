@@ -17,7 +17,7 @@
 
     <!--输出到文件-->
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/party-school.log</file>
+        <file>${log.path}/pingche.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${log.path}/spring-boot-logging.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
             <!-- 日志保存周期 -->
