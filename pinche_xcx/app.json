@@ -22,7 +22,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#f4de3b",
-    "navigationBarTitleText": "同城拼车",
+    "navigationBarTitleText": "蔚州拼车",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },

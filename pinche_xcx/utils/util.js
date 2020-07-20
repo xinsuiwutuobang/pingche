@@ -16,11 +16,11 @@ function formatNumber(n) {
 }  
 
   
-var rootDocment = 'https://xinsuiwutuobang.cn/api/';
+var rootDocment = 'https://www.xinsuiwutuobang.cn/api/';
 //var rootDocment = 'https://localhost:8099/api/';
 
 var wxAppinfo = {
-  'name': '同城拼车',
+  'name': '蔚州拼车',
   'logo': 'https://wx.qlogo.cn/mmhead/Q3auHgzwzM41GbicIwic6JOHzehVqd3OubV4GmEQA67KRXyoZ3Y6maHg/0'
 };
 
