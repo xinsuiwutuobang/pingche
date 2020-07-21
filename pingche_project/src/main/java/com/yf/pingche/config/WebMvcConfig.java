@@ -17,13 +17,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @Slf4j
 public class WebMvcConfig implements WebMvcConfigurer {
-    @Value("${resource-access-path}")
+    @Value("${resource-access-patterns}")
     private String resourceAccessPathPatterns;
     @Value("${upload-path}")
     private String uploadPath;
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // 设置上传文件访问路径
+        // 设置上传文件访问路径http://127.0.0.1:8010/api/resource/202007131702166707824.png
         registry.addResourceHandler(resourceAccessPathPatterns)
                 .addResourceLocations("file:" + uploadPath);
     }
