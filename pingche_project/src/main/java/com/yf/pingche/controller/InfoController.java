@@ -79,6 +79,11 @@ public class InfoController {
         return ApiResult.ok(ret);
     }
 
+    /**
+     * 详情
+     * @param id
+     * @return
+     */
     @PostMapping("/index")
     public Object index(Long id) {
         Info ret = iInfoService.getById(id);
@@ -88,12 +93,12 @@ public class InfoController {
         BeanUtils.copyProperties(ret,infoPo);
         infoPo.setAvatarUrl(user.getAvatarUrl());
         infoPo.setNickName(user.getNickName());
-        Appointment checkAppointment = iAppointmentService
+       /* Appointment checkAppointment = iAppointmentService
                 .getOne(Wrappers.<Appointment>lambdaQuery().eq(Appointment::getIid, id)
                         .eq(Appointment::getUid, uid));
         if (checkAppointment != null) {
             infoPo.setStatus(checkAppointment.getStatus());
-        }
+        }*/
 
         return ApiResult.ok(infoPo);
     }

@@ -56,13 +56,14 @@ public class AppointmentController {
         if (check != null) {
             return ApiResult.fail("请不要重复预约");
         }
+        Info info = infoService.getById(iid);
         Appointment entity = new Appointment();
         //TODO 状态
-        Appointment appointment = entity.setIid(iid).setUid(uid).setName(name).setPhone(phone).setStatus(0).setSurplus(surplus).setTime(new Date());
+        Appointment appointment = entity.setIid(iid).setUid(uid).setName(name).setPhone(phone).setStatus(0).setSurplus(surplus).setTime(info.getTime());
         iAppointmentService.save(appointment);
         //msg
         User user = iUserService.getById(uid);
-        Info info = infoService.getById(iid);
+
         Msg msg = new Msg().setSee(BaseConstant.NO_ZERO).setTime(new Date())
                 .setContent(user.getNickName() + "预约了您发布的拼车信息,请及时处理")
                 .setFid(appointment.getUid()).setUid(info.getUid()).setType("notice").setUid(uid)
@@ -124,7 +125,7 @@ public class AppointmentController {
      */
     @PostMapping("/mycount")
     public Object mycount(Long uid) {
-        int count = iAppointmentService.count(Wrappers.<Appointment>lambdaQuery().eq(Appointment::getUid, uid).eq(Appointment::getStatus, 0));
+        int count = iAppointmentService.count(Wrappers.<Appointment>lambdaQuery().eq(Appointment::getUid, uid).gt(Appointment::getTime,new Date()));
         return ApiResult.ok(count);
     }
 
@@ -154,7 +155,7 @@ public class AppointmentController {
     public Object submit(Long aid,Long uid,Integer status,String sk,String form_id) {
         Appointment appointment = iAppointmentService.getById(aid);
         appointment.setStatus(status);
-        appointment.setTime(new Date());
+        //appointment.setTime(new Date());
         boolean ret = iAppointmentService.updateById(appointment);
         //msg
         User user = iUserService.getById(uid);

@@ -36,6 +36,7 @@
 </view>
 
 <view class="comment" wx:if="{{seecomment}}">
+<!-- bindconfirm在软键盘上点击确认的时候,将触发你指定的方法. -->
 <input  bindconfirm="comment" bindblur="hidecomment" placeholder="{{reply}}" focus auto-height="true" fixed="true" cursor-spacing="10" confirm-type="done"/>
 </view>
 </view>

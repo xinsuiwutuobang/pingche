@@ -11,4 +11,4 @@
 </view>
 
 <button class='loginbutton font4' wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" > <image src="/img/wechat.png" class='icon'></image>   微信授权登录</button>
-<button class='loginbutton font4' wx:if="{{canIUse}}" open-type="getUserInfo" bindtap="bindMessage" > <image src="/img/wechat.png" class='icon'></image>   微信订阅消息</button>
+<!-- <button class='loginbutton font4' wx:if="{{canIUse}}" open-type="getUserInfo" bindtap="bindMessage" > <image src="/img/wechat.png" class='icon'></image>   微信订阅消息</button> -->

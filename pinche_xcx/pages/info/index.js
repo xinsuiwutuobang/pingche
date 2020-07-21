@@ -156,11 +156,12 @@ Page({
     //详情
     util.req('info/index',{id:options.id},function(data){
       that.setData({data:data.data});
-      if(data.data.uid == app.globalData.userInfo.id){
-        var notme = false;
-        //已过期状态等待确认
-      }else if(1 == data.data.type && data.data.surplus > 0){
+      var now = new Date().getTime();
+      var diffValue = Date.parse(data.data.time) - now;
+      var showYy = (1 == data.data.type && data.data.uid != app.globalData.userInfo.id && data.data.surplus > 0 && diffValue > 0)
+      if(showYy){
         var notme = true;
+      
       }
       var Surpluss = new Array('请选择人数');
       for(var i = 1; i <= data.data.surplus; i++){
