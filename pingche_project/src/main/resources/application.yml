@@ -106,3 +106,4 @@ wx:
 # 文件上传下载配置
 upload-path: /opt/pingche/upload/
 resource-access-path: /resource/
+resource-access-patterns: ${resource-access-path}**
