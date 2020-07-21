@@ -16,7 +16,7 @@ Page({
               // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
               res.tempFilePaths.forEach(function(item){
                 wx.uploadFile({
-                  url: 'https://www.xinsuiwutuobang.cn/api/up/upload', 
+                  url: 'https://www.xinsuiwutuobang.cn/api/upload', 
                   filePath: item,
                   name: 'file',
                   formData:{
