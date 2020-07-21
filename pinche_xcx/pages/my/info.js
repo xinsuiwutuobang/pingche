@@ -95,7 +95,7 @@ Page({
       success: function(res) {
         var tempFilePaths = res.tempFilePaths
         wx.uploadFile({
-          url: '/api/upload', 
+          url: 'https://www.xinsuiwutuobang.cn/api/upload', 
           filePath: tempFilePaths[0],
           name: 'file',
           formData:{
@@ -104,10 +104,12 @@ Page({
           success: function(res){
             var data = JSON.parse(res.data);
             console.log(data);
-            if(data.status == 1){
+            if(data.code == 200){
+              var retUrl = "https://www.xinsuiwutuobang.cn/api" + data.data
               that.setData({
-                'userInfo.avatarUrl':data.data
+                'userInfo.avatarUrl': retUrl
               })
+              console.log(retUrl);
               util.clearError(that);
             }else{
               console.log(data.msg);

@@ -27,7 +27,7 @@ Page({
                     console.log(data);
                     if(data.code == 200){
                       that.setData({
-                          files: that.data.files.concat("https://www.xinsuiwutuobang.cn/api/" + data.data)
+                          files: that.data.files.concat("https://www.xinsuiwutuobang.cn/api" + data.data)
                       });
                       console.log(that.data.files);
                       util.clearError(that);

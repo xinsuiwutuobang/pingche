@@ -12,10 +12,14 @@
 .icon{width:50rpx;height: 50rpx;margin:10rpx;position:absolute}
 .p text{margin-left:60rpx;font-size:.9rem;}
 .icon-tel{width:60rpx;height: 60rpx;margin-left:50rpx;}
+.icon-to{width:60rpx;height: 60rpx;margin-left:50rpx;margin-right: 50rpx;}
 .contact text{font-size:.94rem;line-height: 80rpx;margin: 20rpx;}
 .tit{color:#000;}
 .icon-gender{width:30rpx;height: 30rpx;top: 16rpx;}
 .tocomment{width:100rpx;float:left}
+
+.start{margin-left:60rpx;}
+.end{margin-left:60rpx;}
 
 .footer{position: fixed;
     bottom: 0;

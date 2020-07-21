@@ -74,6 +74,7 @@ Page({
       'reply':(that.data.reply).replace('回复',''),
       'type':'dynamic',
       'content':e.detail.value,
+      'uid':app.globalData.userInfo.id,
       'sk':app.globalData.sk
       },function(data){
       if(data.code == 200){

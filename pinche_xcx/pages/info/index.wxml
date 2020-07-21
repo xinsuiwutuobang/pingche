@@ -16,11 +16,11 @@
 
     <view class="page__bd content">
         <view class="p">
-            <image src="/img/cle1.png" class="icon icon-departure"></image><text>{{data.departure}}</text>
+            <text class="tit">起始:</text>
+           <image src="/img/cle1.png" class="icon icon-departure"></image><text>{{data.departure}}</text><image src="/img/cle.png" class="icon icon-departure"></image><text>{{data.destination}}</text>
+        
         </view>
-        <view class="p">
-            <image src="/img/cle.png" class="icon icon-departure"></image><text>{{data.destination}}</text>
-        </view>
+    
         <view class="p contact">
             <text class="tit">联系人:</text><text>{{data.name}}</text>
             <image wx:if="{{data.gender > 0}}" src="/img/{{data.gender}}.png" class="icon icon-gender"></image>

@@ -25,9 +25,9 @@ Page({
                   success: function(res){
                     var data = JSON.parse(res.data);
                     console.log(data);
-                    if(data.status == 1){
+                    if(data.code == 200){
                       that.setData({
-                          files: that.data.files.concat(data.data)
+                          files: that.data.files.concat("https://www.xinsuiwutuobang.cn/api/" + data.data)
                       });
                       util.clearError(that);
                     }else{

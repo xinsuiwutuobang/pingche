@@ -58,7 +58,7 @@ public class InfoController {
             wrapper.like(Info::getDestination, over);
         }
         if (StringUtils.isNotBlank(date)) {
-            wrapper.eq(Info::getDate, date);
+            wrapper.ge(Info::getDate, date);
         }
         IPage<Info> page = iInfoService.page(new Page<>(current == null ? 1 : current, size == null ? 20 : size), wrapper);
         List<InfoPo> infoPos = new ArrayList<>();
