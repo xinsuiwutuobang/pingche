@@ -1,6 +1,7 @@
 package com.yf.pingche.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -46,10 +47,13 @@ public class DynamicController {
     @Autowired
     private ICommentService iCommentService;
     @PostMapping("/getlist")
-    public Object getlist(Long uid, Integer current) {
-        IPage<Dynamic> page = iDynamicService.page(new Page<>(current, BaseConstant.SIZE),
-                Wrappers.<Dynamic>lambdaQuery().eq(Dynamic::getUid, uid)
-                        .orderByDesc(Dynamic::getTime));
+    public Object getlist(Long id,Long uid, Integer current) {
+        LambdaQueryWrapper<Dynamic> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Dynamic::getUid, uid).orderByDesc(Dynamic::getTime);
+        if (id != null) {
+            wrapper.eq(Dynamic::getId, id);
+        }
+        IPage<Dynamic> page = iDynamicService.page(new Page<>(current, BaseConstant.SIZE), wrapper);
         List<DynamicPo> records = new ArrayList<>();
         page.getRecords().forEach(d -> {
             User user = iUserService.getById(d.getUid());

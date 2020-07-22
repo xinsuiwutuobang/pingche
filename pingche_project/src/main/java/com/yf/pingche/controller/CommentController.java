@@ -117,8 +117,9 @@ public class CommentController {
                 .setType("comment").setUid(comment.getUid())
                 .setUrl(BaseConstant.COMMENT_INFO_URL + comment.getIid());
         if (comment.getType().equals("dynamic")) {
-            msg.setUrl(BaseConstant.COMMENT_DYNAMIC_URL);
+            msg.setUrl(BaseConstant.COMMENT_DYNAMIC_URL + comment.getIid());
             msg.setFid(comment.getId());
+            msg.setContent(user.getNickName()+ "评论了您的动态:" + comment.getContent());
         }
         iMsgService.save(msg);
         return ApiResult.ok(ret);
