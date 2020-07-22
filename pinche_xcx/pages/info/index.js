@@ -267,5 +267,19 @@ Page({
       page++;
       this.getComment(this.data.data.id);
     }
+  },
+  //分享
+  onShareAppMessage: function( options ){
+    return {
+      title: "拼车详情",
+      path: 'pages/info/index?id='+this.data.data.id
+    }
+  },
+
+  onShareTimeline: function( options ){
+    return {
+      title: this.data.tm + this.data.departure + this.data.destination,
+      query: 'id=' + this.data.data.id
+    }
   }
 })

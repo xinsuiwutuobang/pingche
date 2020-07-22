@@ -19,9 +19,14 @@ Page({
       urls: that.data.list[e.currentTarget.dataset.name].img 
     })
   },
-  getList:function(){
+  getList:function(id){
     var that = this;
-     util.req('dynamic/getlist',{uid:app.globalData.userInfo.id,current:page},function(data){
+    var params = {uid:app.globalData.userInfo.id,current:page}
+
+    if(id != undefined){
+      params.id = id;
+    }
+     util.req('dynamic/getlist',params,function(data){
         var list = data.data;
         if (page == 1) {
           var arr = new Array();
@@ -45,8 +50,8 @@ Page({
         that.setData({list:arr});
      })
   },
-  onShow:function(options){
-    this.getList();
+  onLoad:function(options){
+    this.getList(options.id);
   },
   onReachBottom:function(){
     if(!this.data.nomore){
