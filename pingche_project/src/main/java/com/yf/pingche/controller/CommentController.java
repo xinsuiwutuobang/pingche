@@ -109,12 +109,12 @@ public class CommentController {
         User user = iUserService.getById(comment.getUid());
         log.info("{}",comment.getIid());
         log.info(BaseConstant.COMMENT_INFO_URL + comment.getIid());
-        new Msg(null, comment.getUid(), user.getNickName() + "评论了您的信息:" + comment.getContent(),
+       /* new Msg(null, comment.getUid(), user.getNickName() + "评论了您的信息:" + comment.getContent(),
                 new Date(), BaseConstant.NO_ZERO, "comment",
-                BaseConstant.COMMENT_INFO_URL + comment.getIid(), info.getUid());
+                BaseConstant.COMMENT_INFO_URL + comment.getIid(), null);*/
         Msg msg = new Msg().setSee(BaseConstant.NO_ZERO).setTime(new Date())
                 .setContent(user.getNickName()+ "评论了您的信息:" + comment.getContent())
-                .setFid(info.getUid()).setType("comment").setUid(comment.getUid())
+                .setType("comment").setUid(comment.getUid())
                 .setUrl(BaseConstant.COMMENT_INFO_URL + comment.getIid());
         if (comment.getType().equals("dynamic")) {
             msg.setUrl(BaseConstant.COMMENT_DYNAMIC_URL);
