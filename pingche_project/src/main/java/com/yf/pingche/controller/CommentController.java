@@ -9,6 +9,7 @@ import com.yf.pingche.entity.*;
 import com.yf.pingche.model.ApiResult;
 import com.yf.pingche.model.po.CommentPo;
 import com.yf.pingche.service.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +34,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/comment")
+@Slf4j
 public class CommentController {
     @Autowired
     private ICommentService iCommentService;
@@ -105,7 +107,11 @@ public class CommentController {
         //发布评论消息
         Info info = iInfoService.getById(comment.getIid());
         User user = iUserService.getById(comment.getUid());
-        //评论msg
+        log.info("{}",comment.getIid());
+        log.info(BaseConstant.COMMENT_INFO_URL + comment.getIid());
+        new Msg(null, comment.getUid(), user.getNickName() + "评论了您的信息:" + comment.getContent(),
+                new Date(), BaseConstant.NO_ZERO, "comment",
+                BaseConstant.COMMENT_INFO_URL + comment.getIid(), info.getUid());
         Msg msg = new Msg().setSee(BaseConstant.NO_ZERO).setTime(new Date())
                 .setContent(user.getNickName()+ "评论了您的信息:" + comment.getContent())
                 .setFid(info.getUid()).setType("comment").setUid(comment.getUid())
