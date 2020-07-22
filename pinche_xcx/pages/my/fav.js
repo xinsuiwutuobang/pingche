@@ -43,15 +43,21 @@ Page({
   getList(){
     var that = this;
     util.req('fav/myFav',{sk:app.globalData.sk,uid:app.globalData.userInfo.id,current:page},function(data){
-      if(data.code != 200){
-          if(page == 1){  
-            console.log(page)        ;
+        if(data.code == 200){
+          // if(page == 1){  
+          //   console.log("page:" + page);
+          //   that.setData({'isnull':true});
+          // }
+          // that.setData({nomore:true});
+          // return false;
+        if(data.data.length == 0){
+          if(page == 1){
             that.setData({'isnull':true});
+          } else {
+            that.setData({nomore:true});
           }
-          that.setData({nomore:true});
-          return false;
-        } 
-
+        }
+      
         if(page == 1){          
           list = new Array();
         }
@@ -63,7 +69,7 @@ Page({
             over:item.destination,
             type:that.data.tabs[item.type],
             tp:item.type,
-            time:item.time.substring(11,16),
+            time:item.time.substring(0,16),
             surplus:item.surplus+surp[item.type],
             see:item.see,
             gender:item.gender,
@@ -74,7 +80,9 @@ Page({
           };
           list.push(obj);
         })
-      that.setData({list:list});
+        that.setData({list:list});
+        } 
+        
     })
   },  
   onPullDownRefresh: function(){

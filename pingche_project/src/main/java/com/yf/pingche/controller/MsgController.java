@@ -51,7 +51,7 @@ public class MsgController {
     @RequestMapping("/get")
     public Object get(Long uid,String type, Integer current) {
         IPage<Msg> page = iMsgService.page(new Page<>(current, BaseConstant.SIZE),
-                Wrappers.<Msg>lambdaQuery().eq(Msg::getUid, uid).eq(Msg::getType,type).eq(Msg::getSee,BaseConstant.NO_ZERO).orderByDesc(Msg::getTime));
+                Wrappers.<Msg>lambdaQuery().eq(Msg::getUid, uid).eq(Msg::getType,type).orderByDesc(Msg::getTime));
         List<MsgPo> ret = new ArrayList<>();
         page.getRecords().forEach(m -> {
             MsgPo po = new MsgPo();

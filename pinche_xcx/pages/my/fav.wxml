@@ -10,7 +10,7 @@
                 <text class="list_start">{{item.start}}</text> <image src="/img/to.png" class="to1"></image> <text class="list_over">{{item.over}}</text>
             </navigator>
             <text class="list_tm">{{item.tm}}</text></view>
-            <view class="weui-media-box__desc list_desc">出发：{{item.date}} {{item.time}}</view>
+            <view class="weui-media-box__desc list_desc">出发：{{item.time}}</view>
             <view class="weui-media-box__info">
                 <view class="weui-media-box__info__meta list_type_{{item.tp}}">{{item.type}}</view>
                 <view class="weui-media-box__info__meta"><image src="/img/people.png" class="list_icon"></image><text>{{item.surplus}}</text></view>
@@ -21,12 +21,12 @@
 </view>
 </view>
 <view class="page__bd" wx:if="{{!isnull}}">
-    <view class="weui-loadmore" bindtap="onReachBottom" wx:if="{{!nomore}}">
+    <!-- <view class="weui-loadmore" bindtap="onReachBottom" wx:if="{{!nomore}}">
         <view class="weui-loading"></view>
         <view class="weui-loadmore__tips">正在加载</view>
     </view>
     <view class="weui-loadmore weui-loadmore_line" wx:if="{{nomore}}">
         <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多了~</view>
-    </view>
+    </view> -->
 </view>
 </view>

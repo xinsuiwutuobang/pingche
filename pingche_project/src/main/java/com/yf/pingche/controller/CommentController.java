@@ -87,7 +87,7 @@ public class CommentController {
             User user = iUserService.getById(uid);
             Msg msg = new Msg().setSee(BaseConstant.NO_ZERO).setTime(new Date())
                     .setContent(user.getNickName() + "赞了您的评论:" + comment.getContent())
-                    .setFid(uid).setUid(comment.getUid()).setType("common").setUid(uid)
+                    .setFid(uid).setUid(comment.getUid()).setType("zan").setUid(uid)
                     .setUrl(BaseConstant.ZAN_COMMON_URL + comment.getIid());
             iMsgService.save(msg);
             //TODO 发送消息

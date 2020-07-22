@@ -6,7 +6,7 @@ var app = getApp();
 //七天
 var today = util.formatTime(new Date((new Date()).getTime()+(1000*60*60*24*7))).split(' ')[0];
 var minday = util.formatTime(new Date()).split(' ')[0];
-var maxday =  util.formatTime(new Date((new Date()).getTime()+(1000*60*60*24*62))).split(' ')[0];
+var maxday =  util.formatTime(new Date((new Date()).getTime()+(1000*60*60*24*7))).split(' ')[0];
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 var page = 1;
 var list = new Array();
@@ -17,7 +17,7 @@ Page({
   data: {
     all:'act',
     //date:,
-    minday:"",
+    minday: minday,
     maxday:maxday,
     tabs: ["全部", "车找人", "人找车"],
     activeIndex: 0,

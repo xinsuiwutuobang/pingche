@@ -3,7 +3,7 @@ var util = require('../../utils/util.js');
 var app = getApp();
 var today = util.formatTime(new Date((new Date()).getTime() + (1000 * 60 * 60 * 24 * 1))).split(' ')[0];
 var minday = util.formatTime(new Date()).split(' ')[0];
-var maxday =  util.formatTime(new Date((new Date()).getTime()+(1000*60*60*24*62))).split(' ')[0];
+var maxday =  util.formatTime(new Date((new Date()).getTime()+(1000*60*60*24*7))).split(' ')[0];
 Page({
   data:{
     sex: ['请选择性别','男','女'],
@@ -19,8 +19,8 @@ Page({
     surplus:0,
     isAgree: false,
     vehicle:'',
-    departure:'出发地',
-    destination:'目的地'
+    departure: '',
+    destination:''
   },
   //选择性别
   setSex:function(e){
@@ -76,11 +76,11 @@ Page({
       util.isError('手机号码错误', that);
       return false;
     }
-    if(data.departure == '出发地'){
+    if(data.departure == ''){
       util.isError('请选择出发地', that);
       return false;
     }
-    if(data.destination == '目的地'){
+    if(data.destination == ''){
       util.isError('请选择目的地', that);
       return false;
     }
@@ -103,7 +103,7 @@ Page({
     data.sk = app.globalData.sk;
     data.uid = app.globalData.userInfo.id;
     delete data.isAgree;
-
+    data.time = data.date + " " + data.tiem;
     util.req('info/add',data,function(data){
       if(data.code == 200){
         wx.redirectTo({

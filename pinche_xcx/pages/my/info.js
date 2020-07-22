@@ -145,6 +145,7 @@ Page({
         'nickName':e.detail.value.nickName,
         'phone':e.detail.value.phone,
         'gender':this.data.gender,
+        'avatarUrl': that.data.userInfo.avatarUrl,
         'id':that.data.userInfo.id,
         'sk':app.globalData.sk
       },function(data){
