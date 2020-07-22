@@ -1,7 +1,10 @@
 package com.yf.pingche.model.po;
 
+import com.yf.pingche.entity.Comment;
 import com.yf.pingche.entity.Dynamic;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,4 +18,5 @@ import lombok.Data;
 public class DynamicPo extends Dynamic {
     private String avatarUrl;
     private String nickName;
+    private List<CommentPo> comment;
 }

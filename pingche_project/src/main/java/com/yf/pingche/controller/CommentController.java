@@ -118,6 +118,7 @@ public class CommentController {
                 .setUrl(BaseConstant.COMMENT_INFO_URL + comment.getIid());
         if (comment.getType().equals("dynamic")) {
             msg.setUrl(BaseConstant.COMMENT_DYNAMIC_URL);
+            msg.setFid(comment.getId());
         }
         iMsgService.save(msg);
         return ApiResult.ok(ret);

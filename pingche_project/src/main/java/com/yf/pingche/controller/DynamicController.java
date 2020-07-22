@@ -5,10 +5,13 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yf.pingche.constant.BaseConstant;
+import com.yf.pingche.entity.Comment;
 import com.yf.pingche.entity.Dynamic;
 import com.yf.pingche.entity.User;
 import com.yf.pingche.model.ApiResult;
+import com.yf.pingche.model.po.CommentPo;
 import com.yf.pingche.model.po.DynamicPo;
+import com.yf.pingche.service.ICommentService;
 import com.yf.pingche.service.IDynamicService;
 import com.yf.pingche.service.IUserService;
 import org.springframework.beans.BeanUtils;
@@ -39,6 +42,9 @@ public class DynamicController {
 
     @Autowired
     private IUserService iUserService;
+
+    @Autowired
+    private ICommentService iCommentService;
     @PostMapping("/getlist")
     public Object getlist(Long uid, Integer current) {
         IPage<Dynamic> page = iDynamicService.page(new Page<>(current, BaseConstant.SIZE),
@@ -51,6 +57,20 @@ public class DynamicController {
             BeanUtils.copyProperties(d, po);
             po.setAvatarUrl(user.getAvatarUrl());
             po.setNickName(user.getNickName());
+            //评论
+            List<Comment> comments = iCommentService
+                    .list(Wrappers.<Comment>lambdaQuery().eq(Comment::getIid, d.getId())
+                            .orderByDesc(Comment::getId));
+            List<CommentPo> commentPos = new ArrayList<>();
+            comments.forEach(c -> {
+                CommentPo commentPo = new CommentPo();
+                BeanUtils.copyProperties(c, commentPo);
+                User commenter = iUserService.getById(c.getUid());
+                commentPo.setNickName(commenter.getNickName());
+                commentPo.setAvatarUrl(commenter.getAvatarUrl());
+                commentPos.add(commentPo);
+            });
+            po.setComment(commentPos);
             records.add(po);
         });
         return ApiResult.ok(records);
