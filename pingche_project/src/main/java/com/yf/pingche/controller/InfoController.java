@@ -60,7 +60,7 @@ public class InfoController {
         if (StringUtils.isNotBlank(date)) {
             wrapper.ge(Info::getDate, date);
         }
-        wrapper.orderByDesc(Info::getTime);
+        wrapper.orderByDesc(Info::getTime,Info::getSurplus);
         IPage<Info> page = iInfoService.page(new Page<>(current == null ? 1 : current, size == null ? 20 : size), wrapper);
         List<InfoPo> infoPos = new ArrayList<>();
         page.getRecords().forEach(i -> {

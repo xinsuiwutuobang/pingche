@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.Date;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -35,6 +37,14 @@ private static final long serialVersionUID=1L;
     private String content;
 
     private Integer status;
+
+    private Integer isTop;
+
+    private String url;
+
+    private Date createTime;
+
+    private Date updateTime;
 
 
 }

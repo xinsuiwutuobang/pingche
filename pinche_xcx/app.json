@@ -17,7 +17,9 @@
     "pages/msg/index",
     "pages/msg/list",
     "pages/my/appointment",
-    "pages/appointment/index"
+    "pages/appointment/index",
+    "pages/pub/index",
+    "pages/pub/list"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -47,6 +49,12 @@
       {
         "pagePath": "pages/msg/index",
         "text": "消息",
+        "iconPath": "img/comments.png",
+        "selectedIconPath": "img/comments1.png"
+      },
+      {
+        "pagePath": "pages/pub/index",
+        "text": "公开",
         "iconPath": "img/comments.png",
         "selectedIconPath": "img/comments1.png"
       },

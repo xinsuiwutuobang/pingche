@@ -103,7 +103,7 @@ Page({
     data.sk = app.globalData.sk;
     data.uid = app.globalData.userInfo.id;
     delete data.isAgree;
-    data.time = data.date + " " + data.tiem;
+    data.time = data.date + " " + data.time + ":00";
     util.req('info/add',data,function(data){
       if(data.code == 200){
         wx.redirectTo({

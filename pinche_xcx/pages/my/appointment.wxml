@@ -19,7 +19,8 @@
                           <image wx:if="{{item.status}}" src="/img/app{{item.status}}.png" class="status_icon"></image>
                       </view>
                     </navigator> 
-                    <image wx:if="{{item.phone}}" src="/img/tel1.png" class="tel" bindtap="tel" data-phone="{{item.phone}}"></image>
+                    <!-- <image wx:if="{{item.phone}}" src="/img/tel1.png" class="tel" bindtap="tel" data-phone="{{item.phone}}"></image> -->
+                    <image  src="/img/tel1.png" class="tel" bindtap="tel" data-phone="{{item.phone}}"></image>
                   </view>
                 </view>
                 <view class="weui-tab__content" hidden="{{activeIndex != 1}}">

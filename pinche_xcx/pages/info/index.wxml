@@ -24,9 +24,10 @@
     
         <view class="p contact">
             <text class="tit">联系人:</text><text>{{data.name}}</text>
-            
+
             <image wx:if="{{data.gender > 0}}" src="/img/{{data.gender}}.png" class="icon icon-gender"></image>
-            <image wx:if="{{data.notme}}" src="/img/tel.png" class="icon icon-tel" bindtap="tel"></image>
+            <!-- <image wx:if="{{data.notme}}" src="/img/tel.png" class="icon icon-tel" bindtap="tel"></image> -->
+            <image  src="/img/tel.png" class="icon icon-tel" bindtap="tel"></image>
         </view>
         <view class="p contact">
             <text class="tit">出发时间:</text><text>{{data.tm}}</text>

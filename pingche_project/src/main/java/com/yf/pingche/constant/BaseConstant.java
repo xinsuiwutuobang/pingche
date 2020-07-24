@@ -33,6 +33,8 @@ public class BaseConstant {
     //预约拒绝
     public static String NOTICE_INFO = "/pages/info/index?id=";
 
+    public static String NOTICE_DETAIL = "/pages/pub/index?id=";
+
     public static void main(String[] args) {
         int localVar = 2;
         while (!atomicInteger.compareAndSet(localVar, localVar + 1)) {

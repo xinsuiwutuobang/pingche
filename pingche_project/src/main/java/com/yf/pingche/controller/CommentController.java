@@ -114,11 +114,10 @@ public class CommentController {
                 BaseConstant.COMMENT_INFO_URL + comment.getIid(), null);*/
         Msg msg = new Msg().setSee(BaseConstant.NO_ZERO).setTime(new Date())
                 .setContent(user.getNickName()+ "评论了您的信息:" + comment.getContent())
-                .setType("comment").setUid(comment.getUid())
+                .setType("comment").setUid(info.getUid()).setFid(comment.getId())
                 .setUrl(BaseConstant.COMMENT_INFO_URL + comment.getIid());
         if (comment.getType().equals("dynamic")) {
             msg.setUrl(BaseConstant.COMMENT_DYNAMIC_URL + comment.getIid());
-            msg.setFid(comment.getId());
             msg.setContent(user.getNickName()+ "评论了您的动态:" + comment.getContent());
         }
         iMsgService.save(msg);

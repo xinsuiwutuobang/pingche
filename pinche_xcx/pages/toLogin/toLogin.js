@@ -60,6 +60,7 @@ Page({
               "language": userinfo.userInfo.language
             }, function (data) {
               console.log(data);
+              //放入setStorage
               app.setUserInfo(data.data);
               wx.reLaunch({
                 url: '/pages/index/index',

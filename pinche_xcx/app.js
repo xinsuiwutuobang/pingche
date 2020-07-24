@@ -7,24 +7,24 @@ App({
     //小程序初始化先判断用户是否登录    
       wx.checkSession({
         success: function(){  
-          wx.getStorage({  
-            key: 'sk',
-            success: function(res) {
-                var sk = res.data;
-                util.req('user/vaild_sk', { "sk": sk }, function (data) {
-                  if (data.status == 1) {
-                    that.globalData.sk = sk;
-                  } else {
-                    that.login();
-                    return;
-                  }
-                })
-            },
-            fail:function() {
-              that.login();
-               return;
-            }
-          })
+          // wx.getStorage({  
+          //   key: 'sk',
+          //   success: function(res) {
+          //       var sk = res.data;
+          //       util.req('user/vaild_sk', { "sk": sk }, function (data) {
+          //         if (data.status == 1) {
+          //           that.globalData.sk = sk;
+          //         } else {
+          //           that.login();
+          //           return;
+          //         }
+          //       })
+          //   },
+          //   fail:function() {
+          //     that.login();
+          //      return;
+          //   }
+          // })
 
           wx.getStorage({  
             key: 'userInfo',
