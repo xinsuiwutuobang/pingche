@@ -9,9 +9,15 @@ Page({
     var that = this;
     this.getList();
   },
+  onReachBottom:function(){
+    if(!this.data.nomore){
+      page++;
+      this.getList();
+    }
+  },
   getList(){
     var that = this;
-    util.req('info/mylist',{page:page},function(data){
+    util.req('notice/list',{page:page},function(data){
       if(data.data.length == 0){
           if(page == 1){  
             console.log(page)        ;
@@ -19,21 +25,18 @@ Page({
           }
           that.setData({nomore:true});
           return false;
-        } 
-
+      } 
       that.setData({list:data.data});
     })
   },
-  onReachBottom:function(){
-    if(!this.data.nomore){
-      page++;
-      this.getList();
-    }
-  },
+
   onPullDownRefresh: function(){
     page = 1;
     this.getList();
     wx.stopPullDownRefresh();
+  },
+  onShow: function () {
+    this.getList();
   },
   // onShow:function(){
   //   page = 1;

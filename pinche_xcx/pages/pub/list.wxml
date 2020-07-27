@@ -7,13 +7,15 @@
             <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                     <view class="weui-media-box__title list_title">
                 <navigator url="{{item.url}}">
-                    <text class="list_start">{{item.title}}</text>
+                    <text class="list_start">{{idx + 1}}. {{item.title}}</text>
+                    <view class="weui-media-box__desc list_desc">内容添加时间： {{item.createTime}}</view>
                 </navigator></view>
-                <view class="weui-media-box__desc list_desc">时间： {{item.update_time}}</view>
+               
             </view>
         </view>
     </view>
   </view>
+  <!--
   <view class="page__bd" wx:if="{{!isnull}}">
       <view class="weui-loadmore" bindtap="onReachBottom" wx:if="{{!nomore}}">
           <view class="weui-loading"></view>
@@ -23,6 +25,7 @@
           <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多了~</view>
       </view>
   </view>
+  -->
 </view>
 
 

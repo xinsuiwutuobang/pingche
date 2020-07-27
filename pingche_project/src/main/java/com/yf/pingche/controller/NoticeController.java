@@ -88,6 +88,9 @@ public class NoticeController {
     @PostMapping("/detail")
     public Object detail(Long id) {
         Notice entity = iNoticeService.getById(id);
+        entity.setViewCount(entity.getViewCount() + 1);
+        entity.setUpdateTime(new Date());
+        iNoticeService.updateById(entity);
         return ApiResult.ok(entity);
     }
 }

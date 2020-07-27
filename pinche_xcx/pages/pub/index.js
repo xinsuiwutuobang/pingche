@@ -3,11 +3,10 @@ Page({
   data:{},
   onLoad:function(options){
     var that = this;
-    // util.req('notice/index',{id:options.id},function(data){
-    //   if(data.status == 1){
-    //     //免责声明
-    //     that.setData({data:data.data});
-    //   }
-    // })
+    util.req('pub/detail',{id:options.id},function(data){
+      if(data.code == 200){
+        that.setData({data:data.data});
+      }
+    })
   }
 })

@@ -40,6 +40,8 @@ private static final long serialVersionUID=1L;
 
     private Integer isTop;
 
+    private Integer viewCount;
+
     private String url;
 
     private Date createTime;

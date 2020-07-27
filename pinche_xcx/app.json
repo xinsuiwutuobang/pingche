@@ -53,7 +53,7 @@
         "selectedIconPath": "img/comments1.png"
       },
       {
-        "pagePath": "pages/pub/index",
+        "pagePath": "pages/pub/list",
         "text": "公开",
         "iconPath": "img/comments.png",
         "selectedIconPath": "img/comments1.png"
