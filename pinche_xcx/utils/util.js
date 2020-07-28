@@ -20,16 +20,14 @@ var rootDocment = 'https://www.xinsuiwutuobang.cn/api/';
 //var rootDocment = 'https://localhost:8099/api/';
 
 var wxAppinfo = {
-  'name': '蔚州拼车',
+  'name': '阿蔚拼拼',
   'logo': 'https://wx.qlogo.cn/mmhead/Q3auHgzwzM41GbicIwic6JOHzehVqd3OubV4GmEQA67KRXyoZ3Y6maHg/0'
 };
 
-//修改成你的appid及appsecret
-var AppConf = { 'appid': 'wx5323a32740a04612', 'appsecret':'78996e7903ff82cb01e7cd187c2e6825'};
+
 
 function req(url, data, cb) {
-  data.appid = AppConf.appid;
-  data.appsecret = AppConf.appsecret; 
+
     wx.request({  
       url: rootDocment + url,  
       data: data,  
@@ -45,8 +43,6 @@ function req(url, data, cb) {
 }  
   
 function getReq(url,data,cb){ 
-    data.appid = AppConf.appid;
-    data.appsecret = AppConf.appsecret;
     wx.request({  
       url: rootDocment + url,
       data: data, 

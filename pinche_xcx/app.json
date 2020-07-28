@@ -24,7 +24,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#f4de3b",
-    "navigationBarTitleText": "蔚州拼车",
+    "navigationBarTitleText": "阿蔚拼拼",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
@@ -36,7 +36,7 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "拼车",
+        "text": "信息",
         "iconPath": "img/auto.png",
         "selectedIconPath": "img/auto1.png"
       },

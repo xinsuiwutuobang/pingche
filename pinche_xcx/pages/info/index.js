@@ -257,7 +257,7 @@ Page({
    */
   onShareAppMessage: function () { 
     return {
-      title: '拼车详情',
+      title: '拼拼详情',
       path: 'pages/info/index?id='+this.data.data.id
     }
   },
@@ -271,7 +271,7 @@ Page({
   //分享
   onShareAppMessage: function( options ){
     return {
-      title: "拼车详情",
+      title: "拼拼详情",
       path: 'pages/info/index?id='+this.data.data.id
     }
   },

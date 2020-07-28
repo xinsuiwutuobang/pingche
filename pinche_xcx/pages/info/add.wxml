@@ -37,11 +37,11 @@
                 </view>
             </view>
         
-            <view class="weui-cells__title">填写拼车信息</view>
+            <view class="weui-cells__title">填拼拼信息</view>
             <view class="weui-cells weui-cells_after-title">
                 <view class="weui-cell weui-cell_input">
                     <view class="weui-cell__hd">
-                        <view class="weui-label">拼车类型</view>
+                        <view class="weui-label">拼拼类型</view>
                     </view>
                     <view class="weui-cell__bd">
                         <radio-group class="radio-group weui-cell weui-check__label" name="type" bindchange="selectType">
@@ -113,7 +113,7 @@
                 </view>
                 <view class="weui-cell weui-cell_input" wx:if="{{type == 1}}">
                     <view class="weui-cell__hd">
-                        <view class="weui-label">拼车价格</view>
+                        <view class="weui-label">拼拼价格</view>
                     </view>
                     <view class="weui-cell__bd">
                         <input class="weui-input" name="price" value="{{price}}" placeholder="请填写价格,不填则为面议"/>

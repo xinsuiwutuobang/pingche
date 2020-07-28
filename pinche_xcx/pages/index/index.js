@@ -47,7 +47,7 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '同城拼车',
+      title: '阿蔚拼拼',
       path: 'pages/index/index'
     }
 

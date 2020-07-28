@@ -28,7 +28,7 @@ Page({
         if(data.code == 200){
           if(type == 1){
             wx.showToast({
-              title: '拼车成功,请留意与乘客联系',
+              title: '拼拼成功,请留意与乘客联系',
               icon: 'success',
               duration: 2000
             })
